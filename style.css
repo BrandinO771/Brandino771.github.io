@@ -1,9 +1,57 @@
 
 
+ @media only screen and (min-width : 701px) {
+  body {
+      transform-origin: top left ;
+      transform: scale(.7,.7); 
+      width: 135%;
+      }
+}
 
 
+ @media only screen and (max-width: 900px) {
+  body {
+        transform-origin: top left;
+        transform: scale(.4 ,.4);
+        width: 300%;
+        }
+}
+
+ /* @media only screen and (min-width: 1000px) {
+  body {
+        transform-origin: top left;
+        width : 50%;  
+        transform: scale(4,4);
+        }
+}  */
 
 
+/* 
+@media only screen and (min-width: 415px) {
+  body {
+      transform-origin: top left;
+      width : 80%; 
+      transform: scale(.2 ,.2);
+      }
+} */
+
+/* 
+@media only screen and (min-width: 359px) {
+  body {
+      transform-origin: top left;
+      width : 120%; 
+      transform: scale(.1);
+      }
+} */
+
+  /* @media only screen and (min-width: 320px  ) {
+    body {
+          transform-origin: top left;
+          width : 300%; 
+          transform: scale(.325 ,.325);
+        }
+  }
+  */
 
 
 #div_bk{
