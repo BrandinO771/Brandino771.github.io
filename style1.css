@@ -1,0 +1,226 @@
+
+
+
+
+
+
+
+
+#div_bk{
+background-image: url('assets/circuits13.png')  ;
+background-blend-mode: color;
+background-size: 245px 235px;
+opacity: 1;
+z-index: 3;
+background-repeat: inherit;
+}
+
+
+#cols-2-lg{
+width:        100%;
+max-width:   1900px;
+margin-left:  100px;
+column-width: 760px;
+}
+
+
+#div1{
+background-color: rgb(121, 102, 209); 
+width:          80%;  
+border-radius:  20px; 
+padding-bottom: 10px; 
+padding-left:   20px; 
+padding-top:    20px;
+font-family: Arial; color: rgb(12, 37, 44); 
+font-size:      13px; 
+font-weight: bold; 
+max-width:     750px; 
+min-width:     500px; 
+border-style: solid;  
+border-width:   6px; 
+border-color: rgb(90, 76, 155);  
+margin-top : auto;   
+break-inside: avoid;
+page-break-inside: avoid;
+/* border-color: rgb(71, 74, 100);         */
+}
+
+
+#div1a{
+background-color: rgb(105, 88, 182); 
+height:         12%; 
+border-radius:   8px;  
+padding-top:    15px;
+padding-left:    2%; 
+padding-bottom: 15px; 
+margin-left:    10px; 
+margin-right:    5%;
+margin-top:      5px;
+margin-bottom:   5px;
+max-width:     770px;    
+}
+
+
+
+#div2 { 
+
+background-color: rgb(238, 137, 70); 
+width:          80%;  
+border-radius:  20px; 
+padding-bottom: 10px; 
+padding-left:   20px; 
+padding-top:    20px;
+font-family: Arial; color: rgb(12, 37, 44); 
+font-size:      13px; 
+font-weight: bold; 
+max-width:      750px; 
+min-width:      500px; 
+border-style: solid;  
+border-width:   6px; 
+/* border-color: rgb(90, 56, 36);       */
+/* border-color: rgb(133, 108, 94);  */
+border-color: rgb(204, 110, 56);
+margin-top : auto;     
+break-inside: avoid;
+page-break-inside: avoid;
+}
+
+
+#div2a {
+/* background-color:    rgb(167, 105, 69); */
+background-color: rgb(218, 119, 62); 
+/* background-color: rgb(155, 96, 61);  */
+height: 12%; 
+border-radius: 8px;  
+padding-top: 15px;
+/* padding-right: 13%;  */
+padding-left: 2%; 
+padding-bottom: 15px; 
+margin-top: 5px;
+margin-left: 10px; 
+margin-right: 5%;
+margin-bottom: 5px;
+max-width: 770px;    
+}
+
+
+#header1{
+font-weight: bold; 
+font-size: 28px ; 
+color: white; 
+padding-left: 1%;
+}
+
+
+#header2{
+font-weight: bold; 
+font-size: 28px ; 
+/* color: rgb(252, 173, 55); */
+color:rgb(255, 228, 211);   
+padding-left: 1%;
+}
+
+
+#imgf{ 
+width:310px; 
+height:185px; 
+float: left; 
+border-radius: 20px; 
+border-style: solid;  
+border-color: rgb(99, 103, 138); 
+border-width: 4px; 
+margin-right: 7%; 
+margin-bottom: 3%;
+margin-top: 15px;
+}
+
+
+#imgd{ 
+width:310px; 
+height:185px; 
+float: left; 
+border-radius: 20px; 
+border-style: solid;  
+border-color: rgb(167, 105, 69);     
+border-width: 4px;   
+margin-right: 7%; 
+margin-bottom: 3%;
+margin-top: 10px;
+}
+
+#icon1{
+width: 50%; 
+height: 50%; 
+opacity:.3;
+border-radius: 4px;
+/* mix-blend-mode :screen;  */
+}
+
+#icon1:hover {opacity: .7; }
+
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+  }
+  
+  /* Tooltip text */
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 140px;
+    background-color: rgb(34, 34, 34);
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+  
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 25%;
+    margin-left: -70px;
+    /* margin-left: -40%; */
+
+ 
+    /* Fade in tooltip */
+    transition: opacity 0.3s;
+    opacity: 0;
+
+  }
+  
+  /* Tooltip arrow */
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(34, 34, 34) transparent transparent transparent;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .tooltip:hover .tooltiptext {
+    transition: opacity 0.3s;
+    visibility: visible;
+    opacity: .8;
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
