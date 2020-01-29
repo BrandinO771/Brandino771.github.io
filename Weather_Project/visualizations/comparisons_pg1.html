@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>COMPARISONS PAGE</title>
+</head>
+
+<body>
+  <!-- Header -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- THE NAV BAR  line 23 - 72 -->
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> -->
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark"  style="background-color:rgb(154, 154, 214)"> -->
+     
+      <a class="navbar-brand" href="../index.html">Weather Home</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- To position nav elements left or right of screen 
+        You can use the new mr-auto for auto right margin on the 1st (left) navbar-nav. Alternatively, ml-auto  -->
+      <ul class="navbar-nav ml-auto">
+
+
+          <!-- DROP DOWN LIST -->
+          <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              PLOTS
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="visual_pg1.html">Max Temperature</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="visual_pg2.html">Humidity</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="visual_pg3.html">Cloudiness</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="visual_pg4.html">Wind Speed</a>
+            </div>
+        </li>
+  
+        
+          <!-- STATIC NAV BAR BUTTON LINKS  -->
+          <li class="nav-item active">
+              <a class="nav-link" href="comparisons_pg1.html">Comparisons<span class="sr-only">(current)</span></a>
+          </li>
+  
+          <li class="nav-item active">
+              <a class="nav-link" href="../data_pg.html">Data</a>
+          </li>
+  
+
+        <!-- <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li> -->
+      </ul> 
+      <!-- <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+      <!-- </form> -->
+    </div>
+  </nav>
+
+    <div class="container">
+        <br>
+
+          <!-- Row 1 -->
+          <div class="row">
+            <div class="col-md-12">
+              <h2>Comparisons:   Lattitude vs... </h2>
+            </div>
+          </div>
+          <!-- Row 2 -->
+          <div class="row"  >
+          
+            <!-- XTOP LEFT IMAGE  -->
+            <div class="col-md-6" style="background-color:rgb(154, 154, 214)">
+                <div class="text-center">
+                  <br>
+                  <p>     </p>
+                  <p>Max Temperature</p>
+                  <img id="bio-image_med"  src="../resources/assets/Lat_v_Temp_BS.png" alt="Max Temp Chart"> 
+                  <p>     </p>
+                </div>
+            </div>
+
+              <!-- TOP RIGHT IMAGE -->
+            <div class="col-md-6" style="background-color:rgb(154, 154, 214)">
+                <div class="text-center">
+                  <br>
+                  <p>     </p>
+                  <p>Humidity</p>
+                  <img id="bio-image_med" src="../resources/assets/Lat_v_Humidity_BS.png" alt="Humidity Chart">
+                  <p>     </p>
+                </div>
+            </div>
+            
+            <!-- BOTTOM LEFT IMAGE -->
+            <div class="col-md-6" style="background-color:rgb(154, 154, 214)">
+                <div class="text-center">
+                    <br>
+                  <p>     </p>
+                  <p>Cloudiness</p>
+                  <img id="bio-image_med"  src="../resources/assets/Lat_v_Cloudiness_BS.png" alt="Cloudiness Chart"> 
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                </div>
+            </div>
+            
+            <!-- BOTTOM RIGHT IMAGE   -->
+            <div class="col-md-6" style="background-color:rgb(154, 154, 214)">
+                <div class="text-center">
+                    <br>
+                  <p>     </p>
+                  <p>Wind Speed</p>
+                  <img id="bio-image_med" src="../resources/assets/Lat_v_WindSpeed_BS.png" alt="Wind Speed Chart">
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                </div>
+            </div>
+          </div>
+          
+    </div>
+
+  </body>
+
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title> CLIMATE LANDING PAGE</title>
+</head>
+
+<body>
+  <!-- Header -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href= "style.css">
+</head>
+<body>
+
+    <!-- THE NAV BAR  line 23 - 72 -->
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark"  style="background-color:rgb(154, 154, 214)">  -->
+    <!-- <nav class="navbar navbar-expand-lg navbar-light> -->
+
+    <a class="navbar-brand" href="#">Weather Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- To position nav elements left or right of screen 
+        You can use the new mr-auto for auto right margin on the 1st (left) navbar-nav. Alternatively, ml-auto  -->
+      <ul class="navbar-nav ml-auto">
+
+
+          <!-- DROP DOWN LIST -->
+        <li class="nav-item dropdown active">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            PLOTS
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="visualizations/visual_pg1.html">Max Temperature</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="visualizations/visual_pg2.html">Humidity</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="visualizations/visual_pg3.html">Cloudiness</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="visualizations/visual_pg4.html">Wind Speed</a>
+          </div>
+      </li>
+
+      
+        <!-- STATIC NAV BAR BUTTON LINKS  -->
+        <li class="nav-item active">
+          <a class="nav-link" href="visualizations/comparisons_pg1.html">Comparisons<span class="sr-only">(current)</span></a>
+      <br>
+        </li>
+
+        <li class="nav-item active">
+            <a class="nav-link" href="data_pg.html">Data</a>
+        </li>
+
+        <!-- <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li> -->
+      </ul> 
+      <!-- <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+      <!-- </form> -->
+    </div>
+  </nav>
+
+  <div class="container">
+         <br>
+
+          <!-- Row 1 -->
+          <div class="row">
+            <div class="col-md-12">
+              <h1>Latitude Vs Weather</h1>
+            </div>
+          </div>
+
+          <br>
+
+      
+          <!-- Row 2 -->
+          <div class="row"  >
+          
+            <div class="col-lg-7 " style="background-color:rgb(154, 154, 214)">
+                <br>
+                </section>
+                  <div class="text-left">
+                    <font size= "5">                
+                    Weather Of The World
+                    </font>
+                   </div>
+                  
+                  <br>
+                
+                  <img id="bio-image"  src="resources/assets/Global_Cities_Set_BS.png" alt="Global Cities"> 
+                  
+                    <p> This is a weather evaluation of 600 random cities spread across the globe. On the same day several weather attributes were recorded per city: Temperature, Humidity, Cloudiness, and Wind Speed.</p>
+                    <p> A high level analysis was peformed to determine how these weather attributes were different in the equatorial zone (from roughly 23 degrees Lattitude to -23 degrees Latitude) compared to the rest of the globe. [This data was recorded on 8/29/2019.] </p>
+                    <p>   </p>
+                 </section>
+
+             </div>
+
+
+            <!-- THIS IS JUST A SPACER BETWEEN 2 HORZ COLUMS - THIS IS COL 2 AND ITS WHITE -->
+              <div class="col-md-1 nopadding" style="background-color:rgb(#ffffff)"></div>
+
+            <div class="col-md-4" style="background-color:rgb(154, 154, 214)">
+                <div class="text-center">
+                <br>
+                    
+                <!-- <h4>Visualizations</h4> -->
+                <div class="text-center">
+                  <font size= "5">                
+                  Visualizations
+                  </font>
+                </div>
+                <br>
+                
+                <img id="bio-image_sm" leftmargin = 10  src="resources/assets/Lat_v_Temp_BS.png" alt="Max Temp Chart"> 
+                      
+                <img id="bio-image_sm"    src="resources/assets/Lat_v_Humidity_BS.png" alt="Humidity Chart"><!--   align = right  >   -->
+                <div class="row"  >
+                <br>              
+                </div> 
+                  
+                <img id="bio-image_sm"  src="resources/assets/Lat_v_Cloudiness_BS.png" alt="Cloudiness Chart"> 
+
+                <img id="bio-image_sm" src="resources/assets/Lat_v_WindSpeed_BS.png" alt="Wind Speed Chart">
+
+                <br>
+                <br>
+
+                <p> Above is a snap shot of the visualizations of this data. To view larger charts, please click on the navigation bar above and select plots, and chart type.</p>
+              </div>
+            
+            </div>
+          </div>
+  
+  </div>
+
+</body>
+
+</html>
+
