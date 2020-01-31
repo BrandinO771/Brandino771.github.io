@@ -55,9 +55,9 @@
 
 
 #div_bk{
-background-image: url('assets/circuits13.png')  ;
+background-image: url('assets/circuits28.png')  ;
 background-blend-mode: color;
-background-size: 245px 235px;
+background-size: 340px 320px;
 opacity: 1;
 z-index: 3;
 background-repeat: inherit;
@@ -251,7 +251,7 @@ border-radius: 4px;
   
   /* Show the tooltip text when you mouse over the tooltip container */
   .tooltip:hover .tooltiptext {
-    transition: opacity 0.3s;
+    /* transition: opacity 0.3s; */
     visibility: visible;
     opacity: .8;
 
