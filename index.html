@@ -1,3 +1,8 @@
+
+<!-- below we have several divs containing 1 row and 2 columns, each row contains 2 rectangular project summary cards
+when the screen is expanded , the cards display side by sie when screen is collapsed, cards stack vertically 
+the css file also handles the zoom for the entire page depending on device screen size computer or mobile device  -->
+
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=2.0, minimum-scale=0.86,">
 <html lang="en-us">
@@ -11,10 +16,11 @@
 </head>
     
 
-<body style="background-color:rgb(27, 20, 31); font-family: Arial; font-weight: bold; z-index: 1; ">
+<body style="background-color:rgb(34, 23, 39); font-family: Arial; font-weight: bold; z-index: 1; ">
+    <!-- <body style="background-color:rgb(28, 24, 54); font-family: Arial; font-weight: bold; z-index: 1; "> -->
 
     <div id="div_bk">
-    
+      
     <div style=" max-width: 1720px;   color: white; background-color: rgb(64, 53, 71); border-radius: 10px; 
             padding-top: 30px;  padding-bottom: 60px;           padding-left: 20px;
             margin-left:100px;  margin-right: 2%;               margin-bottom: 30px;
@@ -28,12 +34,21 @@
     <br>
 
 <!-- RESUME BUTTON   -->
-<!-- 
-    <button href="" style="border-radius: 8px; background-color: rgb(86, 86, 179); width:90px; height:44px; 
+ 
+    <!-- <button href="b_resume.html" target="____" style="border-radius: 8px; background-color: rgb(86, 86, 179); width:90px; height:44px; 
             margin-top :15px; margin-left: 10px ; position: absolute; border-style: groove; border-color: rgb(151, 114, 190); border-width: 3px; 
             font-size: 18px; font-weight: bold; font-family: Arial; color: rgb(195, 179, 245); " action="mouse"
             >Resume</button>
-    <br> -->
+    <br>  -->
+
+    <a href="b_resume.html" target="____"  
+    style="border-radius: 8px; background-color: rgb(86, 86, 179); 
+    position: absolute; width:90px; height:30px; 
+    margin-top:15px; margin-left: 10px; 
+    padding-top:10px; padding-left: 5px; 
+    border-style: groove; border-color: rgb(151, 114, 190); border-width: 3px; 
+    font-size: 18px; font-weight: bold; font-family: Arial; color: rgb(195, 179, 245); "> RESUME</a>
+<br> 
 
      <!-- Please note I made this site from scratch with no bootstrap or external style templates  -->
     </div>
@@ -44,6 +59,9 @@
     <!-- https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Multiple-column_Layout -->
 
 <div id="cols-2-lg">            <!-- A 2 ROW COLUMN CONTAINER-->  
+
+
+    <!-- ///////////// (1) /////////////////  --Global Economics  -->
     <div id="div2">             <!-- CONTAIN HOLDING PROJ INFO-->
            <div id="div2a" >    <!-- HEADER TITLE OBJECT -->
                 <font id= "header2">  Global Economics  </font>
@@ -54,6 +72,15 @@
                         <span class="tooltiptext" > Open Project In New Tab </span>
                     </a>
                 </div>                 -->
+                         <!-- /////// { icon - github } ///////// -->
+            <div class="tooltip" style="float: right;       position: relative;">
+                <a  href="https://github.com/PatrickHennessey/kjbp-group-project/tree/master/brandon"  target = "_blank" > 
+                   <img id= "icon1" src="assets/GitHub-Mark-32px.png" alt="git_img" style="height: 52%; width: 52%;   padding-left: 0%; margin-right: 30px;" > 
+                   <span class="tooltiptext" > Open Git Hub Repo In New Tab </span>
+                </a>
+            </div>
+            <font id="font_link_1"> LINK: </font>
+
        
            </div>
         <table style="width:100%; padding-top: 5px; ">
@@ -73,21 +100,33 @@
                 </td>
             </tr>                                                                       
         </table>
+        <br>
+        <br>
+        <br>
+        <br>
     </div>
     <br>
     <br>
 
-
+    <!-- ///////////// (2) ///////////////// --- Food Snap  -->
     <div id="div1">
         <div id="div1a" >
             <font id= "header1">  Food Snap   </font>
-
-            <!-- <div class="tooltip" style="float: right;">
+           <!-- <div class="tooltip" style="float: right;">
                 <a  href=""  target = "_" > 
                     <img id= "icon1" src="assets/icon_link4.bmp" alt="econ_img" > 
                     <span class="tooltiptext" > Open Project In New Tab</span>
                 </a>
             </div>    -->
+         <!-- /////// { icon - github } ///////// -->
+         <div class="tooltip" style=" float: right;       position: relative;">
+            <a  href="https://github.com/BrandinO771/AnnaPatBran_p4"  target = "_blank" > 
+               <img id= "icon1" src="assets/GitHub-Mark-32px.png" alt="git_img" style="height: 52%; width: 52%;   padding-left: 0%; margin-right: 30px;" > 
+               <span class="tooltiptext" > Open Git Hub Repo In New Tab </span>
+            </a>
+        </div>
+        <font id="font_link_1"> LINK: </font>
+
 
         </div>
         <table style="width:100%; padding-top: 5px; ">
@@ -118,14 +157,16 @@
     </div>
     <br>
     <br>
+
 </div> 
+<!-- END CONTAINER DIV 1 -->
 
 
 <div id="cols-2-lg">    
+    <!-- ///////////// (3) ///////////////// -- US Health Care Cost Compare  -->
     <div id="div2"> 
         <div id="div2a" >
             <font id= "header2">  US Health Care Cost Compare     </font>
-
             <!-- <div class="tooltip" style="float: right;">
                 <a  href=" "  target = "_blank" > 
                     <img id= "icon1" src="assets/icon_link4.bmp" alt="icon_img" > 
@@ -134,6 +175,15 @@
             </div> -->
 
             <!-- <a href="  " target"__"  style="color:rgb(255, 196, 57);  padding-left: 2%;">   Link Pending     </a><br> -->
+         <!-- /////// { icon - github } ///////// -->
+         <div class="tooltip" style=" float: right;       position: relative;">
+            <a  href=" https://github.com/BrandinO771/viper_proj_1"  target = "_blank" > 
+               <img id= "icon1" src="assets/GitHub-Mark-32px.png" alt="git_img" style="height: 52%; width: 52%;   padding-left: 0%; margin-right: 30px;" > 
+               <span class="tooltiptext" > Open Git Hub Repo In New Tab </span>
+            </a>
+        </div>
+        <font id="font_link_1"> LINK: </font>
+
         </div>
         <table style="width:100%; padding-top: 5px; ">
             <tr >
@@ -154,10 +204,10 @@
     </div>
     <br>
     <br>
+    <!-- ///////////// (4) ///////////////// -- Project Zerb -->
     <div id="div1">
         <div id="div1a" >
             <font id= "header1"> Project Zerb - Video Game    </font>
-
             <div class="tooltip" style="float: right;">
                 <a  href="https://gamejolt.com/games/Project_Zerb/281415"   target = "_blank" > 
                     <img id= "icon1" src="assets/icon_link4.bmp" alt="econ_img" > 
@@ -171,11 +221,7 @@
                     <span class="tooltiptext" style="padding-left: 55px; " > Youtube: Game-Play, New Tab</span>
                 </a>
             </div>
-
-
-            
-            <!-- <a href="https://gamejolt.com/games/Project_Zerb/281415"  target="_______" style="color:rgb(8, 255, 255);   padding-left: 2%;">  Link Game Page </a> -->
-            <!-- <a href="https://youtu.be/3iuxpZb8cyI  "   target="_" style="color:rgb(8, 255, 255);   padding-left: 2%;">  Youtube Game-Play </a><br> -->
+            <font id="font_link_1"> LINKS: </font>
         </div>
 
         <table style="width:100%; padding-top: 5px; ">
@@ -200,17 +246,24 @@
 </div> 
 <!-- END CONTAINER DIV 2 -->
 
+
 <div id="cols-2-lg">   
+    <!-- ///////////// () /////////////////-- City Bike - Tableau Analysis  -->
     <div id="div2">
         <div id="div2a" >
             <font id= "header2">  City Bike - Tableau Analysis    </font>
+          
+
+    
+              <!-- /////// {  icon - project } ///////// -->
             <div class="tooltip" style="float: right;">
-                <a  href="https://public.tableau.com/profile/brandon.stein6097#!/vizhome/brandonsteinke_tableau_citibike_full8/Story1?publish=yes"  target = "_blank" > 
+                    <a  href="https://public.tableau.com/profile/brandon.stein6097#!/vizhome/brandonsteinke_tableau_citibike_full8/Story1?publish=yes"  target = "_blank" > 
                     <img id= "icon1" src="assets/icon_link4.bmp" alt="econ_img" > 
                     <span class="tooltiptext" > Open Project In New Tab </span>
                 </a>
             </div>
-            <!-- <a href="https://public.tableau.com/profile/brandon.stein6097#!/vizhome/brandonsteinke_tableau_citibike_full8/Story1?publish=yes" target"__"  style="color:rgb(255, 196, 57);   padding-left: 2%;">  Link to Tableau Project  </a><br> -->
+            <font id="font_link_1"> LINK: </font>
+
         </div>
         <table style="width:100%; padding-top: 5px; ">
             <tr >
@@ -234,9 +287,59 @@
     <br>
     <br>
 
-    <!-- <div id="div1" style="margin-top: 50px;"> -->
-    <div id="div1" >
-        <div id="div1a" >
+<!-- ///////////// () /////////////////-- Bacteria Dashboard  -->
+ <div id="div1" >
+    <div id="div1a" >
+        <font id= "header1"> Bacteria Dashboard         </font>
+        <div class="tooltip" style="float: right;">
+            <a  href="https://bellys.herokuapp.com/" target = "_blank" > 
+                <img id= "icon1" src="assets/icon_link4.bmp" alt="econ_img" > 
+                <span class="tooltiptext" > Open Project In New Tab </span>
+            </a>
+        </div>
+   
+        
+         <!-- /////// { icon - github } ///////// -->
+         <div class="tooltip" style=" float: right;       position: relative;">
+            <a  href="https://github.com/BrandinO771/plotly-challenge"  target = "_blank" > 
+               <img id= "icon1" src="assets/GitHub-Mark-32px.png" alt="git_img" style="height: 52%; width: 52%;   padding-left: 0%; margin-right: 30px;" > 
+               <span class="tooltiptext" > Open Git Hub Repo In New Tab </span>
+            </a>
+        </div>
+        <font id="font_link_1"> LINKS: </font>
+
+
+
+    </div>
+    <table style="width:100%; padding-top: 5px; ">
+        <tr >
+            <td style= " padding-top: 10px;  padding-left: 10px; "> 
+                <img id="imgf"  src="assets/belly_4.jpg" alt="Weather API Project"> 
+                <ul list-style-position: outside; style ="padding-right: 50px; padding-left: 20px; ">      
+                <li> SUMMARY : Interactive visual dashboard with charts displaying common belly button bacteria data points </li>
+                <br>     
+                <li> Drop down menu to select various test samples </li>
+                <br>
+                <li> Multiple charts and legends fit nicely together to display information, from database  </li>
+                <br>
+                <!-- <li>   </li> -->
+                <!-- <br> -->
+                <li> Technology Utilized : Python Flask, D3 JavaScript Visualization, JavaScript API, Pandas SQL Alchemy, Heroku deployed    </li>
+                </ul>
+            </td>
+        </tr>                                                                       
+    </table>
+</div>
+<br>
+<br>
+</div>
+
+
+<div id="cols-2-lg">   
+
+    <!-- ///////////// (5) ///////////////// -- Global Weather---->
+    <div id="div2" >
+        <div id="div2a" >
             <font id= "header1"> Global Weather  </font>
             <div class="tooltip" style="float: right;">
                 <a  href="Weather_Project/index.html" target = "_blank" > 
@@ -245,11 +348,20 @@
                 </a>
             </div>
             <!-- <a href="Weather_Project/index.html"  target="___"  style="color:rgb(8, 255, 255);   padding-left: 2%;">   Link to Project  </a><br> -->
+         <!-- /////// { icon - github } ///////// -->
+         <div class="tooltip" style=" float: right;       position: relative;">
+            <a  href="https://github.com/BrandinO771/API-Challenge"  target = "_blank" > 
+               <img id= "icon1" src="assets/GitHub-Mark-32px.png" alt="git_img" style="height: 52%; width: 52%;   padding-left: 0%; margin-right: 30px;" > 
+               <span class="tooltiptext" > Open Git Hub Repo In New Tab </span>
+            </a>
         </div>
+        <font id="font_link_1"> LINKS: </font>
+       
+    </div>
         <table style="width:100%; padding-top: 5px; ">
             <tr >
                 <td style= " padding-top: 10px;  padding-left: 10px; "> 
-                    <img id="imgf"  src="assets/weather_img.jpg" alt="Weather API Project"> 
+                    <img id="imgd"  src="assets/weather_img.jpg" alt="Weather API Project"> 
                     <ul list-style-position: outside; style ="padding-right: 50px; padding-left: 20px; ">      
                     <li> SUMMARY : Evaluated weather conditions of 600 random cities spread across the globe for Temperature, Humidity, Cloudiness, and Wind Speed.  </li>
                     <br>     
@@ -264,94 +376,126 @@
                 </td>
             </tr>                                                                       
         </table>
+    </div> 
+    <br>
+    <br> 
+
+
+   <!-- ///////////// (7) /////////////////----Global Earthquake Map -->
+   <div id="div1">
+    <div id="div1a" >
+        <font id= "header2">   Global Earthquake Map    </font>
+        <div class="tooltip" style="float: right;">
+            <a  href="Global_Quakes/index.html"  target = "_blank" > 
+                <img id= "icon1" src="assets/icon_link4.bmp" alt="econ_img" > 
+                <span class="tooltiptext" > Open Project In New Tab </span>
+            </a>
+        </div>
+         <!-- /////// { icon - github } ///////// -->
+         <div class="tooltip" style=" float: right;       position: relative;">
+            <a  href="https://github.com/BrandinO771/leaflet-challenge"  target = "_blank" > 
+               <img id= "icon1" src="assets/GitHub-Mark-32px.png" alt="git_img" style="height: 52%; width: 52%;   padding-left: 0%; margin-right: 30px;" > 
+               <span class="tooltiptext" > Open Git Hub Repo In New Tab </span>
+            </a>
+        </div>
+        <font id="font_link_1"> LINKS: </font>
+
+
+        <!-- <a href="Global_Quakes/index.html"  target="_______" style="color:rgb(255, 196, 57);   padding-left: 2%;">  Click to see Project!  </a><br> -->
+    </div>
+    <table style="width:100%; padding-top: 5px; ">
+        <tr >
+            <td style= " padding-top: 10px;  padding-left: 10px; ">      
+                <img id="imgf"  src="assets/quake_img.jpg" alt="gloabal quakes">      
+                <ul list-style-position: outside; style ="padding-right: 50px; padding-left: 20px; ">      
+                <li>SUMMARY : An interactive global map that displays recent earthquakes by location, size and color by magnitude.</li>
+                <br>     
+                <li> JavaScript performs live API calls to obtain geo earthquake data from USGS </li>
+                <br>
+                <li> Uses D3 JavaScript/Mapbox to generate global map, earthquake location markers, and responsive tooltip info per quake </li>
+                <br>
+                <li> Technology Utilized : D3 JavaScript, API, Leaflet Mapbox, HTML </li>
+                </ul>
+            </td>
+        </tr>                                                                       
+    </table>
     </div>
     <br>
     <br>
-</div>
+</div> 
+<!-- END CONTAINER DIV 3 -->
 
 
 
 <div id="cols-2-lg">   
-    <div id="div2">
-        <div id="div2a" >
-            <font id= "header1">  D3 HealthCare Visualization  </font>
-            <div class="tooltip" style="float: right;">
-                <a href="https://brandino771.github.io/D3_SCATTER_CHART/"   target = "_blank" > 
-                    <img id= "icon1" src="assets/icon_link4.bmp" alt="econ_img" > 
-                    <span class="tooltiptext" > Open Project In New Tab </span>
-                </a>
-            </div>
-            <!-- <a href="https://brandino771.github.io/D3_SCATTER_CHART/"  target"__"  style="color:rgb(8, 255, 255);   padding-left: 2%;">   Link to Project   </a><br> -->
-        </div>
-        <table style="width:100%; padding-top: 5px; ">
-            <tr >
-                <td style= " padding-top: 10px;  padding-left: 10px; "> 
-                    <img id="imgd"  src="assets/d3_health_img.jpg" alt="health image"> 
-                    <ul list-style-position: outside; style ="padding-right: 50px; padding-left: 20px; ">      
-                    <li>SUMMARY :  HTML interactive chart of healthcare factors by state </li>
-                    <br>     
-                    <li> Interactive Axis category selector, responsive axis values, animated transitions, tooltips, screen responsive     </li>
-                    <br>
-                    <li> Technology Utilized : D3 JavaScript, HTML, CSS     </li>
-                    <br>
-                    <!-- <li>      </li> -->
-                    </ul>
-                </td>
-            </tr>                                                                       
-        </table>
-        </div>
-        <br>
-        <br>
 
+  <!-- ///////////// (6) /////////////////  D3 HealthCare Visualization-->
+  <div id="div2">
+    <div id="div2a" >
+        <font id= "header1"> HealthCare Visualization  </font>
+        <div class="tooltip" style="float: right;">
+            <a href="https://brandino771.github.io/D3_SCATTER_CHART/"   target = "_blank" > 
+                <img id= "icon1" src="assets/icon_link4.bmp" alt="econ_img" > 
+                <span class="tooltiptext" > Open Project In New Tab </span>
+            </a>
+        </div>
+        <!-- <a href="https://brandino771.github.io/D3_SCATTER_CHART/"  target"__"  style="color:rgb(8, 255, 255);   padding-left: 2%;">   Link to Project   </a><br> -->
+         <!-- /////// { icon - github } ///////// -->
+         <div class="tooltip" style=" float: right;       position: relative;">
+            <a  href="https://github.com/BrandinO771/D3-challenge"  target = "_blank" > 
+               <img id= "icon1" src="assets/GitHub-Mark-32px.png" alt="git_img" style="height: 52%; width: 52%;   padding-left: 0%; margin-right: 30px;" > 
+               <span class="tooltiptext" > Open Git Hub Repo In New Tab </span>
+            </a>
+        </div>
+        <font id="font_link_1"> LINKS: </font>
+
+
+    </div>
+    <table style="width:100%; padding-top: 5px; ">
+        <tr >
+            <td style= " padding-top: 10px;  padding-left: 10px; "> 
+                <img id="imgd"  src="assets/d3_health_img.jpg" alt="health image"> 
+                <ul list-style-position: outside; style ="padding-right: 50px; padding-left: 20px; ">      
+                <li>SUMMARY :  HTML interactive chart of healthcare factors by state </li>
+                <br>     
+                <li> Interactive Axis category selector, responsive axis values, animated transitions, tooltips, screen responsive     </li>
+                <br>
+                <li> Technology Utilized : D3 JavaScript, HTML, CSS     </li>
+                <br>
+                </ul>
+            </td>
+        </tr>                                                                       
+    </table>
+    </div>
+    <br>
+    <br>
+
+
+    <!-- ///////////// (8) ///////////////// -- Link 4 - Python Game  -->
     <div id="div1">
         <div id="div1a" >
-            <font id= "header2">   Global Earthquake Map    </font>
-            <div class="tooltip" style="float: right;">
-                <a  href="Global_Quakes/index.html"  target = "_blank" > 
-                    <img id= "icon1" src="assets/icon_link4.bmp" alt="econ_img" > 
-                    <span class="tooltiptext" > Open Project In New Tab </span>
-                </a>
-            </div>
-            <!-- <a href="Global_Quakes/index.html"  target="_______" style="color:rgb(255, 196, 57);   padding-left: 2%;">  Click to see Project!  </a><br> -->
-        </div>
-        <table style="width:100%; padding-top: 5px; ">
-            <tr >
-                <td style= " padding-top: 10px;  padding-left: 10px; ">      
-                    <img id="imgf"  src="assets/quake_img.jpg" alt="gloabal quakes">      
-                    <ul list-style-position: outside; style ="padding-right: 50px; padding-left: 20px; ">      
-                    <li>SUMMARY : An interactive global map that displays recent earthquakes by location, size and color by magnitude.</li>
-                    <br>     
-                    <li> JavaScript performs live API calls to obtain geo earthquake data from USGS </li>
-                    <br>
-                    <li> Uses D3 JavaScript/Mapbox to generate global map, earthquake location markers, and responsive tooltip info per quake </li>
-                    <br>
-                    <li> Technology Utilized : D3 JavaScript, API, Leaflet Mapbox, HTML </li>
-                    </ul>
-                </td>
-            </tr>                                                                       
-        </table>
-        </div>
-        <br>
-        <br>
-    </div>
-</div>
-
-<div id="cols-2-lg">   
-    <div id="div2">
-        <div id="div2a" >
-            <font id= "header1">  Link 4 - Python Game   </font>
-            <div class="tooltip" style="float: right;">
+                <font id= "header1">  Link 4 - Python Game   </font>
+            <!-- <div class="tooltip" style="float: right;">
                 <a  href=" "  target = "_blank" > 
                     <img id= "icon1" src="assets/icon_link4.bmp" alt="econ_img" > 
                     <span class="tooltiptext" > Open Project In New Tab </span>
                 </a>
-            </div>
+            </div> -->
+         <!-- /////// { icon - github } ///////// -->
+         <div class="tooltip" style=" float: right;       position: relative;">
+            <a  href="  "  target = "_blank" > 
+               <img id= "icon1" src="assets/GitHub-Mark-32px.png" alt="git_img" style="height: 52%; width: 52%;   padding-left: 0%; margin-right: 30px;" > 
+               <span class="tooltiptext" > Open Git Hub Repo In New Tab </span>
+            </a>
+        </div>
+        <font id="font_link_1"> LINK: </font>
+
             <!-- <a href="pending" target"__"  style="color:rgb(8, 255, 255);   padding-left: 2%;">   Link Pending     </a><br> -->
         </div>
         <table style="width:100%; padding-top: 5px; ">
             <tr >
                 <td style= " padding-top: 10px;  padding-left: 10px; "> 
-                    <img id="imgd"  src="assets/game_link4_img1.png" alt="link4_img"> 
+                    <img id="imgf"  src="assets/game_link4_img1.png" alt="link4_img"> 
                     <ul list-style-position: outside; style ="padding-right: 50px; padding-left: 20px; ">      
                     <li>SUMMARY : A simple interactive game using Python, and simple text based graphics  </li>
                     <br>     
@@ -367,8 +511,15 @@
         </div>
         <br>    
         <br>
-    </div>
+  
 </div>
+<!-- END CONTAINER DIV 4 -->
+
+
+
+
+
+
 <!-- 
 <div id="div1">
     <div id="div1a" >
@@ -399,7 +550,7 @@
  -->
 
 
-</div>
+
 
 </body>
 <br>

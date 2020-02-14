@@ -17,46 +17,16 @@
         }
 }
 
- /* @media only screen and (min-width: 1000px) {
-  body {
-        transform-origin: top left;
-        width : 50%;  
-        transform: scale(4,4);
-        }
-}  */
-
-
-/* 
-@media only screen and (min-width: 415px) {
-  body {
-      transform-origin: top left;
-      width : 80%; 
-      transform: scale(.2 ,.2);
-      }
-} */
-
-/* 
-@media only screen and (min-width: 359px) {
-  body {
-      transform-origin: top left;
-      width : 120%; 
-      transform: scale(.1);
-      }
-} */
-
-  /* @media only screen and (min-width: 320px  ) {
-    body {
-          transform-origin: top left;
-          width : 300%; 
-          transform: scale(.325 ,.325);
-        }
-  }
-  */
-
+/* WHAT TO CHANGE THE WHOLE COLOR HUR FOR THE PAGE PLAY WITH DEGREES BELOW */
+/* body{  filter: hue-rotate(340deg);} */
+body{ 
+filter: saturate(115%);
+}
 
 #div_bk{
 background-image: url('assets/circuits28.png')  ;
-background-blend-mode: color;
+/* filter: brightness(150%); */
+/* background-blend-mode: screen;  */
 background-size: 340px 320px;
 opacity: 1;
 z-index: 3;
@@ -90,6 +60,9 @@ border-color: rgb(90, 76, 155);
 margin-top : auto;   
 break-inside: avoid;
 page-break-inside: avoid;
+/* box-shadow: 0px 13px 10px rgb(3, 2, 15, .6); */
+box-shadow: 0px 10px 30px 0px rgb(186, 189, 243) inset, 0px 13px 10px rgb(3, 2, 15, .6); 
+/* filter: drop-shadow(0px 10px 15px rgb(6, 3, 29,.8)); */
 /* border-color: rgb(71, 74, 100);         */
 }
 
@@ -131,6 +104,10 @@ border-color: rgb(204, 110, 56);
 margin-top : auto;     
 break-inside: avoid;
 page-break-inside: avoid;
+/* box-shadow: 0px 13px 10px rgb(3, 2, 15, .7); */
+box-shadow: 0px 10px 30px 0px pink inset, 0px 13px 10px rgb(3, 2, 15, .6);
+
+
 }
 
 
@@ -149,6 +126,7 @@ margin-left: 10px;
 margin-right: 5%;
 margin-bottom: 5px;
 max-width: 770px;    
+
 }
 
 
@@ -169,6 +147,35 @@ padding-left: 1%;
 }
 
 
+
+/* IF SCREEN WIDTH CHANGES WE HAVE TO HIDE THE TEXT "LINK" NEXT TO ICON AS IT SLIDES UNDER THE ICONS OR BELOW THE BANNER */
+@media only screen and (max-width : 2002px) {  #font_link_1 {visibility: visible ;    }}
+@media only screen and (max-width : 1300px) {  #font_link_1 {visibility: hidden  ;    }}
+@media only screen and (max-width : 1150px) {  #font_link_1 {visibility: visible ;    }}
+@media only screen and (max-width : 590px)  {  #font_link_1 {visibility: hidden  ;    }}
+@media only screen and (max-width : 530px)  {  #font_link_1 {visibility: visible ;    }}
+
+
+#font_link_1{
+float: right; 
+position: relative;  
+font-family: Arial;
+font-weight: bolder;
+font-weight: bold; 
+font-size: 12px ; 
+color: rgb(8, 8, 8); 
+/* padding-right: 50px; */
+/* padding-left: 200px; */
+/* margin-left: 250px; */
+margin-right: 20px;
+padding-top: 15px;
+opacity: .4;
+} 
+
+
+
+
+
 #imgf{ 
 width:310px; 
 height:185px; 
@@ -180,12 +187,14 @@ border-width: 4px;
 margin-right: 7%; 
 margin-bottom: 3%;
 margin-top: 15px;
+break-inside: avoid;
 }
 
 
 #imgd{ 
 width:310px; 
-height:185px; 
+height:185px;
+position: relative; 
 float: left; 
 border-radius: 20px; 
 border-style: solid;  
@@ -194,18 +203,37 @@ border-width: 4px;
 margin-right: 7%; 
 margin-bottom: 3%;
 margin-top: 10px;
+break-inside: avoid;
 }
 
 #icon1{
 width: 50%; 
 height: 50%; 
-opacity:.3;
+opacity:.4;
 border-radius: 4px;
 /* mix-blend-mode :screen;  */
 }
 
 #icon1:hover {opacity: .7; }
 
+#imgd:hover{
+ width: 970px;
+ height: 570px;
+ position: absolute;
+ /* position: relative; */
+ opacity: .96;
+ z-index: 10;
+}
+
+#imgf:hover{
+  width: 970px;
+  height: 570px;
+  position: absolute;
+  opacity: .96;
+  z-index: 10;
+ }
+
+/* .tooltip .tooltiptext::after { */
 
 /* Tooltip container */
 .tooltip {
