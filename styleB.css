@@ -1,0 +1,10 @@
+
+ @media print { 
+     .TheButtons{
+         display:none;
+         /* visibility: hidden; */
+        } 
+
+ }
+
+ 
