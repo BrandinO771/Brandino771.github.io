@@ -205,8 +205,8 @@ opacity: .4;
   }
 
   #imgE:hover{
-    width: 840px;
-    height: 640px;
+    width: 800px;
+    height: 780px;
     position: absolute;
     opacity: .96;
     z-index: 10;
