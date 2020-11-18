@@ -40,6 +40,21 @@ to { background-color: rgb(145, 1, 125);}
 } 
 
 
+#font_link_1{
+  animation-name:  link_word;
+  animation-duration: 1.05s;
+  animation-iteration-count: infinite;  
+  animation-direction: alternate; /*this moves ping pong back and forth */
+  }
+  
+  @keyframes  link_word {
+  from {color:rgba(0, 238, 255, 0.2);}
+  to { color: rgba(0, 255, 213, 0.9);}
+  }
+
+
+
+
 #div_bk{
 background-image: url('assets/circuits28.png')  ;
 /* filter: brightness(150%); */
@@ -179,14 +194,14 @@ position: relative;
 font-family: Arial;
 font-weight: bolder;
 font-weight: bold; 
-font-size: 12px ; 
+font-size: 16px ; 
 color: rgb(8, 8, 8); 
 /* padding-right: 50px; */
 /* padding-left: 200px; */
 /* margin-left: 250px; */
 margin-right: 20px;
 padding-top: 15px;
-opacity: .4;
+/* opacity: .4; */
 } 
 
 
