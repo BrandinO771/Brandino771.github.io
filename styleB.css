@@ -6,5 +6,13 @@
         } 
 
  }
+body{
+  background-color: rgb(74, 74, 67);
+ }
 
- 
+ img {
+ margin-left : 20px;
+ margin-bottom : -50px;
+ border-radius: 10px;
+ transform: scale(.9 ,.9);
+ }

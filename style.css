@@ -62,7 +62,7 @@ background-image: url('assets/circuits28.png')  ;
 background-size: 340px 320px;
 opacity: 1;
 z-index: 3;
-background-repeat: inherit;
+background-repeat:repeat;
 }
 
 
@@ -75,7 +75,7 @@ column-width: 760px;
 
 
 #div1{
-background-color: rgb(121, 102, 209); 
+background-color: rgb(136, 115, 228); 
 width:          80%;  
 border-radius:  20px; 
 padding-bottom: 10px; 
@@ -138,8 +138,6 @@ break-inside: avoid;
 page-break-inside: avoid;
 /* box-shadow: 0px 13px 10px rgb(3, 2, 15, .7); */
 box-shadow: 0px 10px 30px 0px pink inset, 0px 13px 10px rgb(3, 2, 15, .6);
-
-
 }
 
 
