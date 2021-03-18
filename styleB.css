@@ -1,4 +1,14 @@
 
+
+ @media only screen and (max-width: 900px) {
+  body {
+        transform-origin: top left;
+        transform: scale(.4 ,.4);
+        width: 400%;
+        }
+}
+
+
  @media print { 
      .TheButtons{
          display:none;
