@@ -41,12 +41,21 @@ table{
 }
 
 #text_input_proj{
-  /* resize : auto;
-  overflow: auto; */
   width: auto;
   height: auto;
   margin-top: 5px;
-  /* position: relative; */
+  max-width: 100px;
+  min-width: 100px;
+  min-height:20px;
+  top : inherit;
+  left: 0px;
+  transform-origin: top left;
+}
+
+#text_input_proj1{
+  width: auto;
+  height: auto;
+  margin-top: 5px;
   max-width: 100px;
   min-width: 100px;
   min-height:20px;
@@ -60,17 +69,16 @@ table{
   min-height: 40px;
   height : 40px;
   text-align: right;
-  /* position: relative;
-  max-width: 60px;
-  min-width: 60px;
-  font-size: 14px;
-  border-style: solid;
-  border-width: 2px;
-  right : -80% */
 }
 
+#incomeGrandTotal{
+  font-weight: bold;
+  min-height: 40px;
+  height : 40px;
+  text-align: right;
+}
+ 
 #text_input_desc{
-
   width: auto;
   margin-top: 5px;
   max-width: 300px;
@@ -80,13 +88,23 @@ table{
   left: 0%;
   transform-origin: top left;
 }
+
+ 
+#text_input_desc1{
+  width: auto;
+  margin-top: 5px;
+  max-width: 300px;
+  min-width: 300px;
+  min-height: 20px;
+  top : 0%;
+  left: 0%;
+  transform-origin: top left;
+}
+
 #expense_amt{
-  /* resize : auto;
-  overflow: auto; */
   width: auto;
   height: auto;
   margin-top: 5px;
-  /* position: relative; */
   max-width: 80px;
   min-width: 80px;
   min-height:20px;
@@ -95,8 +113,23 @@ table{
   left: 0px;
   align-items: center;
   text-align: right;
-  /* transform-origin: top left; */
 }
+
+
+#income_amt{
+  width: auto;
+  height: auto;
+  margin-top: 5px;
+  max-width: 80px;
+  min-width: 80px;
+  min-height:20px;
+  top : 1%;
+  margin-top: 1%;
+  left: 0px;
+  align-items: center;
+  text-align: right;
+}
+
 #pymt_method{
   width: auto;
   height: auto;
@@ -109,11 +142,25 @@ table{
   left: 0px;
   align-items: center;
 }
+
+#pymt_method1{
+  width: auto;
+  height: auto;
+  margin-top: 5px;
+  max-width: 80px;
+  min-width: 80px;
+  min-height:20px;
+  top : 1%;
+  margin-top: 1%;
+  left: 0px;
+  align-items: center;
+}
+
 button{
-  height : 40px;
-  width : 50px;
+  height : 60px;
+  width : 80px;
   min-height: 40px;
-  max-width: 60px;
+  max-width: 80px;
   font-size: 10px;
   border-style:groove;
   border-width: 3px;

@@ -1,3 +1,5 @@
+<!-- 5-8-21 START 1:30 until 3:50 with break lets say 1 hour-->
+
 <!DOCTYPE html>
 <html>
 
@@ -5,50 +7,84 @@
   <meta charset="utf-8">
   <title>VAR CON Daily Log </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css"> -->
-  <!-- <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> -->
-  <link rel="stylesheet" href="static/css/style.css">
+   <link rel="stylesheet" href="static/css/style.css">
 
 <body style="background-color: rgb(233, 226, 216);">
 
 
+  <!-- EXPENSE TABLE -->
 <p> EXPENSES: </p>
-
 <div>
 <table id="expenses_table" style="margin-top: 20px;">
   <tr>
-    <th>Project</th>
-    <th>Description</th>
-    <th>Amount</th>
-    <th>Payment Method</th>
-  </tr>
-
-  <!-- <tr onmouseout="fixHeights(this)"  >
-    <td> <textarea class = 'inputs' id= "text_input_proj" type='text'> </textarea>1 </td>
-    <td> <textarea class = 'inputs' id= "text_input_desc" type='text'> </textarea> 2</td>
-    <td> <input    class = 'inputs' id= "text_input_amt"  type='number' value='0.00' >3 </input> </td>
-    <td> <textarea class = 'inputs' id= "pymt_method" type='text'> </textarea> </td>
-  </tr>
-  <tr onmouseout="fixHeights(this)" >
-    <td> <textarea class = 'inputs' id= "text_input_proj" type='text'> </textarea>x </td>
-    <td> <textarea class = 'inputs' id= "text_input_desc" type='text'> </textarea> y</td>
-    <td> <input    class = 'inputs' id= "text_input_amt"  type='number' value='0.00' > z</input> </td>
-    <td> <textarea class = 'inputs' id= "pymt_method" type='text'> </textarea> </td>
-  </tr> -->
+    <th>Project</th> <th>Description</th> <th>Amount</th> <th>Payment Method</th>
+</tr>
 </table>
 
 <div style="max-width: 620px;  width: 100% ; min-width: 150px; height: 65px;">
   <div style="position: relative;  float : right; margin-right :0px;">
     <button  onclick= "computeTotal('input_expenseAmount')"> Calc Total </button>
-    <button   onclick= "addRow('expenses_table')"  > Insert Row </button>
-    <button  onclick= "deleteLastRow('expenses_table')"> Delete Row </button>
+    <button   onclick= "addRow('expenses_table', 'no')"  > Insert Row </button>
+    <button  onclick= "deleteLastRow('expenses_table', 'no')"> Delete Row </button>
   </div>
 </div>
+  <!-- EXPENSE TABLE -->
 
+
+  <!-- INCOME TABLE -->
+  <p> INCOME: </p>
+  <div>
+  <table id="income_table" style="margin-top: 20px;">
+    <tr>
+      <th>Project</th> <th>Description</th> <th>Amount</th> <th>Payment Method</th>
+  </tr>
+  </table>
+  
+  <div style="max-width: 620px;  width: 100% ; min-width: 150px; height: 65px;">
+    <div style="position: relative;  float : right; margin-right :0px;">
+      <button  onclick= "computeTotal('input_incomeAmount')"> Calc Total </button>
+      <button   onclick= "addRow('income_table', 'yes' )"  > Insert Row </button>
+      <button  onclick= "deleteLastRow('income_table', 'yes')"> Delete Row </button>
+    </div>
+  </div>
+    <!-- INCOME TABLE -->
+  
+     <!-- LABOR TABLE -->
+  <p> LABOR: </p>
+  <div>
+  <table id="labor_table" style="margin-top: 20px;">
+    <tr>
+      <th>Employee Name </th> <th>Job Site</th> <th>Hours</th> 
+  </tr>
+  </table>
+  
+  <div style="max-width: 620px;  width: 100% ; min-width: 150px; height: 65px;">
+    <div style="position: relative;  float : right; margin-right :0px;">
+      <button   onclick= "addRowLabor()"  > Insert Row </button>
+      <button  onclick= "deleteLastRow('labor_table', 'labor')"> Delete Row </button>
+    </div>
+  </div>
+
+
+<td>
+  <input list='income_pymt_list'> </input> 
+ </td>
+
+<datalist id='income_pymt_list'> 
+  <option>credit</option>
+  <option>check</option>
+  <option>cash</option>
+</datalist>
 
 </div> 
 <!-- end of expense table -->
 
+
+<datalist id='employee_list'> 
+  <option>Danny</option>
+  <option>Junior</option>
+  <option>Mauricio</option>
+</datalist>
 
 </body>
 
@@ -67,77 +103,139 @@ let exp_row =`<tr onmouseout="fixHeights(this)">
     <td> <input    class = 'input_expenseAmount' id= "expense_amt"  type='number' value='0.00' > </input> </td>
     <td> <textarea class = 'inputs' id= "pymt_method" type='text'> </textarea> </td>
   </tr>`
+
+function addRowLabor()
+{
+  for( i = 1; i < 4; i++)
+    {
+      if ( i == 1 ){ newRow = document.createElement('tr') }
+      newCell = document.createElement('td')
+      newRow.append(newCell)
+      newInput = document.createElement('input')
+
+      if ( i == 1 ) 
+      {
+        newInput.setAttribute('list','employee_list')
+      }
+      if ( i == 3 ) 
+      {
+        newInput.type = 'number'
+        newInput.value ='0.00'
+      }
+      newCell.append(newInput)
+    }
+  document.getElementById('labor_table').append(newRow)
+  }
+
+
 let sumAdded = false;
-function addRow(tableId)
+let incomeTotalAppended = false;
+function addRow(tableId, incomeTable)
   {
   // document.getElementById(tableId).innerHTML+=exp_row
   idName= ''
-  for ( i = 0; i<5; i++)
+  for ( i = 1; i<6; i++)
       {
-        if(i==0) idName ='text_input_proj'
-        if(i==1) idName ='text_input_desc'
-        if(i==2) idName ='expense_amt'
-        if(i==3) idName ='pymt_method'
+        console.log('i is <', i, 'i>', 'incomeTable is', incomeTable, 'typeof(incomeTable)', typeof(incomeTable))
 
-      if ( i < 4)
+        if( incomeTable == 'no') 
+          {
+          if(i==1) idName ='text_input_proj'
+          if(i==2) idName ='text_input_desc'
+          if(i==3) idName ='expense_amt'
+          if(i==4) idName ='pymt_method'
+          }
+          if( incomeTable == 'yes' ) 
+          {
+          if(i==1) idName ='text_input_proj1'
+          if(i==2) idName ='text_input_desc1'
+          if(i==3) idName ='income_amt'
+          if(i==4) idName ='pymt_method1'
+          }
+         //1 = 'co1 1' , proj //text area  2 = 'co1 2' , descr // text area  3 = 'co1 3' , total input // input numbe3r
+         // 4 = 'co1 4' , pymt method // input  5 = 'insert last sum row if does not exist' ,
+      if ( i < 5)
       {
-        if ( i == 0){ newRow = document.createElement('tr') }
+        if ( i == 1){ newRow = document.createElement('tr') }
+
         newCell = document.createElement('td')
         newRow.append(newCell)
         newRow.setAttribute('onmouseout', "fixHeights(this)" )
 
-        if ( i !=2)
+        if ( i <=2  || i == 4) //> create text area for 1&2  see notes for 4 below 
+            {
+              if ( i <=2) //text areas
+                {
+                newInput = document.createElement('textArea')
+                }
+              
+              if( i == 4 ) //text area for exp table - input for income table
+                {
+                if ( incomeTable == 'no') newInput = document.createElement('textArea')
+                if ( incomeTable == 'yes'){
+                  newInput = document.createElement('input')
+                  // newInput.list = 'income_pymt_list'
+                  newInput.setAttribute('list','income_pymt_list')
+                  }
+                }
+              newInput.id = idName
+              newInput.className ='inputs'
+              newCell.append(newInput)
+            }
+
+        if ( i==3) // create amount number input
           {
-          newInput = document.createElement('textArea')
-          newInput.className ='inputs'
-          newInput.id = idName
+            newInput = document.createElement('input')
+            newInput.id = idName
+            newInput.type = 'number'
+            newInput.value ='0.00'
+          if ( incomeTable == 'no' ) newInput.className ='input_expenseAmount'
+          if ( incomeTable == 'yes' ) newInput.className ='input_incomeAmount'
           newCell.append(newInput)
           }
-        if ( i ==2 )
-          {
-          newInput = document.createElement('input')
-          newInput.className ='input_expenseAmount'
-          newInput.id = idName
-          newInput.type = 'number'
-          newInput.value ='0.00'
-          newCell.append(newInput)
-          }
 
-          if ( i == 3 && sumAdded == false)document.getElementById(tableId).append(newRow)
-
-          if ( i == 3 && sumAdded == true )//> insert new row before the last sum row
-          {
-          parNode = document.getElementById(tableId)
-          lastchildElm = parNode.lastChild
-          parNode.insertBefore(newRow, lastchildElm )
-          }
-
+          //>>FIRST NON-HEADER ROW ADDED EVER !! <1st visit to this func> --- add row with everything created above as the <<last row of table??
+          if ( i == 4 && sumAdded == false && incomeTable == 'no') document.getElementById(tableId).append(newRow)
+          if ( i == 4 && incomeTotalAppended == false && incomeTable == 'yes') document.getElementById(tableId).append(newRow)
+          
+          
+          //<2nd Visit to this funct> , add row with everything created above, <<BUT ADD IT as 2ND to last row ??before the sum row> this is the secod time through
+        if ( i == 4 && ( ( sumAdded == true && incomeTable == 'no') ||( incomeTotalAppended == true && incomeTable == 'yes') )  )//> create specific 
+            {
+            parNode = document.getElementById(tableId)
+            lastchildElm = parNode.lastChild
+            parNode.insertBefore(newRow, lastchildElm )
+            }
       }
 
-      if ( i ==4 && sumAdded == false)
+      if ( i ==5 && ( ( sumAdded == false && incomeTable == 'no') ||( incomeTotalAppended == false && incomeTable == 'yes') )     ) //>>ADD BOTTOM GRAND TOTAL ROW
         {
         newRow = document.createElement('tr')
         for( x = 0 ; x < 4; x++)
             {
             newCell = document.createElement('td')
             if( x != 2 ) newCell.style.backgroundColor = 'rgb(182, 182, 182)'
-            if( x == 2 ) newCell.id = 'expenseGrandTotal';
+            if( x == 2 && incomeTable == 'no' ){ newCell.id = 'expenseGrandTotal';  sumAdded=true;}
+            if( x == 2 && incomeTable == 'yes'){ newCell.id = 'incomeGrandTotal'; incomeTotalAppended =true;}
             newRow.append(newCell)
-            sumAdded=true;
             }
           document.getElementById(tableId).append(newRow)
         }
     }
+    console.log('bottom of addRows Function i = <', i, '>', 'incomeTable is', incomeTable, 'typeof(incomeTable)', typeof(incomeTable), 'idName = ', idName, 'sumAdded', sumAdded, 'incomeTotalAppended', incomeTotalAppended  )
   }
-addRow('expenses_table');//call this once 
 
-function deleteLastRow(tableId)
+addRow('expenses_table', 'no');//call this once to make initial row
+addRow('income_table', 'yes');//call this once to make initial row
+addRowLabor();
+
+function deleteLastRow(tableId, labor)
     {
     d=document.getElementById(tableId)
     console.log('d.childNodes', d.childNodes )
     console.log('children', d.children)
     rowCt=d.children.length
-    rowCt-=2
+    if( labor == 'labor') {  rowCt-=1} else { rowCt-=2 }
     console.log('this is the table', d)
     if( rowCt > 0)  d.children[rowCt].remove()
     }
@@ -152,11 +250,14 @@ function computeTotal(class_name)
           console.log('this is s for sums', s.value)
           total+=parseFloat(s.value)
           }
-     document.getElementById('expenseGrandTotal').innerHTML = total
+     if ( class_name == 'input_expenseAmount') document.getElementById('expenseGrandTotal').innerHTML = total
+     if ( class_name == 'input_incomeAmount' ) document.getElementById('incomeGrandTotal').innerHTML = total
     }
 
 
   function fixHeights(par){
+    console.log('hi i am fix the heights function')
+
     heights = ''
     row = par.children;
     // console.log('this is par', par, 'the kids', par.children)
@@ -165,7 +266,7 @@ function computeTotal(class_name)
     {
     for( cell of row)
       {
-      if ( cell.children[0].id =='text_input_desc')
+      if ( cell.children[0].id =='text_input_desc'  || cell.children[0].id =='text_input_desc1'   )
         {
           if ( (cell.children[0].style.height).length > 0)
             {
