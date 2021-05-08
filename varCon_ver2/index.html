@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>VAR CON Daily Log </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css"> -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> -->
+  <link rel="stylesheet" href="static/css/style.css">
+
+<body style="background-color: rgb(233, 226, 216);">
+
+
+<p> EXPENSES: </p>
+
+<div>
+<table id="expenses_table" style="margin-top: 20px;">
+  <tr>
+    <th>Project</th>
+    <th>Description</th>
+    <th>Amount</th>
+    <th>Payment Method</th>
+  </tr>
+
+  <!-- <tr onmouseout="fixHeights(this)"  >
+    <td> <textarea class = 'inputs' id= "text_input_proj" type='text'> </textarea>1 </td>
+    <td> <textarea class = 'inputs' id= "text_input_desc" type='text'> </textarea> 2</td>
+    <td> <input    class = 'inputs' id= "text_input_amt"  type='number' value='0.00' >3 </input> </td>
+    <td> <textarea class = 'inputs' id= "pymt_method" type='text'> </textarea> </td>
+  </tr>
+  <tr onmouseout="fixHeights(this)" >
+    <td> <textarea class = 'inputs' id= "text_input_proj" type='text'> </textarea>x </td>
+    <td> <textarea class = 'inputs' id= "text_input_desc" type='text'> </textarea> y</td>
+    <td> <input    class = 'inputs' id= "text_input_amt"  type='number' value='0.00' > z</input> </td>
+    <td> <textarea class = 'inputs' id= "pymt_method" type='text'> </textarea> </td>
+  </tr> -->
+</table>
+
+<div style="max-width: 620px;  width: 100% ; min-width: 150px; height: 65px;">
+  <div style="position: relative;  float : right; margin-right :0px;">
+    <button  onclick= "computeTotal('input_expenseAmount')"> Calc Total </button>
+    <button   onclick= "addRow('expenses_table')"  > Insert Row </button>
+    <button  onclick= "deleteLastRow('expenses_table')"> Delete Row </button>
+  </div>
+</div>
+
+
+</div> 
+<!-- end of expense table -->
+
+
+</body>
+
+
+
+
+
+
+
+<script>
+// window.addEventListener("pointerup", fixHeights, false)
+
+let exp_row =`<tr onmouseout="fixHeights(this)">
+    <td> <textarea class = 'inputs' id= "text_input_proj" type='text'> </textarea> </td>
+    <td> <textarea class = 'inputs' id= "text_input_desc" type='text'> </textarea> </td>
+    <td> <input    class = 'input_expenseAmount' id= "expense_amt"  type='number' value='0.00' > </input> </td>
+    <td> <textarea class = 'inputs' id= "pymt_method" type='text'> </textarea> </td>
+  </tr>`
+let sumAdded = false;
+function addRow(tableId)
+  {
+  // document.getElementById(tableId).innerHTML+=exp_row
+  idName= ''
+  for ( i = 0; i<5; i++)
+      {
+        if(i==0) idName ='text_input_proj'
+        if(i==1) idName ='text_input_desc'
+        if(i==2) idName ='expense_amt'
+        if(i==3) idName ='pymt_method'
+
+      if ( i < 4)
+      {
+        if ( i == 0){ newRow = document.createElement('tr') }
+        newCell = document.createElement('td')
+        newRow.append(newCell)
+        newRow.setAttribute('onmouseout', "fixHeights(this)" )
+
+        if ( i !=2)
+          {
+          newInput = document.createElement('textArea')
+          newInput.className ='inputs'
+          newInput.id = idName
+          newCell.append(newInput)
+          }
+        if ( i ==2 )
+          {
+          newInput = document.createElement('input')
+          newInput.className ='input_expenseAmount'
+          newInput.id = idName
+          newInput.type = 'number'
+          newInput.value ='0.00'
+          newCell.append(newInput)
+          }
+
+          if ( i == 3 && sumAdded == false)document.getElementById(tableId).append(newRow)
+
+          if ( i == 3 && sumAdded == true )//> insert new row before the last sum row
+          {
+          parNode = document.getElementById(tableId)
+          lastchildElm = parNode.lastChild
+          parNode.insertBefore(newRow, lastchildElm )
+          }
+
+      }
+
+      if ( i ==4 && sumAdded == false)
+        {
+        newRow = document.createElement('tr')
+        for( x = 0 ; x < 4; x++)
+            {
+            newCell = document.createElement('td')
+            if( x != 2 ) newCell.style.backgroundColor = 'rgb(182, 182, 182)'
+            if( x == 2 ) newCell.id = 'expenseGrandTotal';
+            newRow.append(newCell)
+            sumAdded=true;
+            }
+          document.getElementById(tableId).append(newRow)
+        }
+    }
+  }
+addRow('expenses_table');//call this once 
+
+function deleteLastRow(tableId)
+    {
+    d=document.getElementById(tableId)
+    console.log('d.childNodes', d.childNodes )
+    console.log('children', d.children)
+    rowCt=d.children.length
+    rowCt-=2
+    console.log('this is the table', d)
+    if( rowCt > 0)  d.children[rowCt].remove()
+    }
+
+function computeTotal(class_name)
+    {
+    total = 0.00
+    sums=document.getElementsByClassName(class_name)
+    for ( s of sums)
+          {
+          console.log('this is s for sums', s)
+          console.log('this is s for sums', s.value)
+          total+=parseFloat(s.value)
+          }
+     document.getElementById('expenseGrandTotal').innerHTML = total
+    }
+
+
+  function fixHeights(par){
+    heights = ''
+    row = par.children;
+    // console.log('this is par', par, 'the kids', par.children)
+    // console.log('type of row is', typeof(row))
+    if ( typeof(row) != "undefined")
+    {
+    for( cell of row)
+      {
+      if ( cell.children[0].id =='text_input_desc')
+        {
+          if ( (cell.children[0].style.height).length > 0)
+            {
+                heights =  cell.children[0].style.height
+            }
+        }
+    }
+    for( x of row )
+        {
+          x.children[0].style.height = heights;
+        //  console.log('this height is' , x.children[0].style.height, ' it should be', heights )
+        }
+  }
+}
+</script>
+
+  <script type="text/javascript" src="static/js/test_data.json"></script>
+  <script src="static/js/data.js"></script>
+  <script src="static/js/app1.js"></script>
+</body>
+
+</html>
