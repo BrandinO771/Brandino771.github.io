@@ -9,6 +9,7 @@ p{
   font-size: 20px;
   font-style: bold;
   margin-bottom: -10px;
+  font-weight: bold;
 }
 
 
@@ -66,15 +67,16 @@ table{
 
 #expenseGrandTotal{
   font-weight: bold;
-  min-height: 40px;
-  height : 40px;
+  min-height: 20px;
+  height : 20px;
   text-align: right;
+  font-weight: bolder;
 }
 
 #incomeGrandTotal{
   font-weight: bold;
-  min-height: 40px;
-  height : 40px;
+  min-height: 20px;
+  height : 20px;
   text-align: right;
 }
  
@@ -111,10 +113,13 @@ table{
   top : 1%;
   margin-top: 1%;
   left: 0px;
-  align-items: center;
+  /* align-items: center; */
   text-align: right;
 }
 
+.input_hours{
+  text-align: right;
+}
 
 #income_amt{
   width: auto;
@@ -158,9 +163,9 @@ table{
 
 button{
   height : 60px;
-  width : 80px;
-  min-height: 40px;
-  max-width: 80px;
+  width : 60px;
+  /* min-height: 60px; */
+  /* max-width: 100px; */
   font-size: 10px;
   border-style:groove;
   border-width: 3px;
@@ -169,6 +174,7 @@ button{
   background-color: rgb(142, 140, 191);
   margin-right :5px;
   margin-top : 3px;
+  
 }
 
 button:hover{

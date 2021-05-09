@@ -72,7 +72,7 @@ function updateMyLocalStorage( updateItem){
 }
 
 //updateMyLocalStorage({ location : "Crazy Land", status : "Insane"})
-
+/*
 function queryMyStorage( queryKey, queryValue)
 {
   // myLocalJsonStorage = localStorage.getItem('mytestLocalStorage') 
@@ -89,7 +89,9 @@ function queryMyStorage( queryKey, queryValue)
 
   console.log('final filter is', finalFilter)
 }
+*/
 
+/*
     function uniqueifyMyStorage( fileName )
       {
         // myLocalJsonStorage = localStorage.getItem('mytestLocalStorage') 
@@ -109,7 +111,7 @@ function queryMyStorage( queryKey, queryValue)
 
         localStorage.setItem('mytestLocalStorage', JSON.stringify(dupeRemover));
 }
-
+*/
 // viewMyStorage()
 
 function viewMyStorage()
@@ -122,26 +124,38 @@ function viewMyStorage()
   //////////////////////////////////////////////////////////////////
 /// DOWNLOAD TABLE TO CSV
 //////////////////////////////////////////////////////////////////
-function downloader( list_pos, table_title )/// DOWNLOAD CSV FROM MASTER LIST 
+function downloader(table_id)/// DOWNLOAD CSV  with data of obj key values 
 {
+//  https://www.developintelligence.com/blog/2017/04/use-javascript-to-export-your-data-as-csv/
     ///this receives a number from a button that correlates to 
     ///the position of the list in the master array for us to unpack and download
     ////// DOWNLOAD CSV //////////
-    // var csv = response[0]+'\n';
-    //     data = response[1];
-     var csv = download_rep[list_pos][0]+'\n';
-        data = download_rep[list_pos][1];
+  the_data = getRowData(table_id);
+  // data =  the_data
+// if ( the_data.length > 0)
+//       {
+        keys = Object.keys(the_data[0]); //makes headers 
 
-      data.forEach(function(row) {
-              csv += row.join(',  ');
-              csv += "\n";
-              });
+        result = '';
+        result += keys.join(',');
+        result += '\n';
 
-    console.log(csv);
-    var hiddenElement = document.createElement('a');
-    hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
-    hiddenElement.target = '_blank';
-    hiddenElement.download = `${table_title}.csv`;
-    hiddenElement.click();
+        the_data.forEach(function(item) {  //breaks data into lines
+          ctr = 0;
+          keys.forEach(function(key) {
+          if (ctr > 0) result += ',';
+          result += item[key];
+          ctr++;
+          });
+        result += '\n';
+        });
+
+        var hiddenElement = document.createElement('a');
+        hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(result); //encode result as csv
+        hiddenElement.target = '_blank';
+        // hiddenElement.download = `vc_dailyLog${vtable_title}.csv`;
+        hiddenElement.download = `vc_dailyLog.csv`;
+        hiddenElement.click();
+  
   //////////////////////////////////////////////
   }

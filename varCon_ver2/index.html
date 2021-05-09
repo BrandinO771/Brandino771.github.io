@@ -1,5 +1,5 @@
 <!-- 5-8-21 START 1:30 until 3:50 with break lets say 1 hour-->
-
+<!-- 5-9-21 start 10 end 11AM , get data from any income and expense tables  -->
 <!DOCTYPE html>
 <html>
 
@@ -11,21 +11,34 @@
 
 <body style="background-color: rgb(233, 226, 216);">
 
+<div id='workSheet' style=" max-width : 630px; background-color: rgb(233, 226, 216);">
 
+<br>
+<br>
+<p style="margin-left: 10%;"> VAR CON Construction - Daily Activity Log </p>
+<br>
+
+<div style='float: right;  margin-left: 20%;'>
+  <label> Date </label>
+  <input   type = 'date'  label ='Date'></input> 
+</div>
   <!-- EXPENSE TABLE -->
 <p> EXPENSES: </p>
 <div>
 <table id="expenses_table" style="margin-top: 20px;">
+  <tablebody>
   <tr>
     <th>Project</th> <th>Description</th> <th>Amount</th> <th>Payment Method</th>
 </tr>
+</tablebody>
 </table>
 
 <div style="max-width: 620px;  width: 100% ; min-width: 150px; height: 65px;">
   <div style="position: relative;  float : right; margin-right :0px;">
+    <button  style="background-color: rgb(61, 201, 129);"  onclick= "downloader('expenses_table')">Download CSV</button>
+    <button style="background-color: rgb(228, 65, 160);" onclick= "deleteLastRow('expenses_table', 'no')"> Delete Row </button>
     <button  onclick= "computeTotal('input_expenseAmount')"> Calc Total </button>
-    <button   onclick= "addRow('expenses_table', 'no')"  > Insert Row </button>
-    <button  onclick= "deleteLastRow('expenses_table', 'no')"> Delete Row </button>
+    <button  style="background-color: rgb(61, 171, 201);"   onclick= "addRow('expenses_table', 'no')"  > Insert Row </button>
   </div>
 </div>
   <!-- EXPENSE TABLE -->
@@ -42,9 +55,11 @@
   
   <div style="max-width: 620px;  width: 100% ; min-width: 150px; height: 65px;">
     <div style="position: relative;  float : right; margin-right :0px;">
+      <button  style="background-color: rgb(61, 201, 129);"  onclick= "downloader('income_table')"> Download CSV</button>
+      <button style="background-color:rgb(228, 65, 160);"  onclick= "deleteLastRow('income_table', 'yes')"> Delete Row </button>
       <button  onclick= "computeTotal('input_incomeAmount')"> Calc Total </button>
-      <button   onclick= "addRow('income_table', 'yes' )"  > Insert Row </button>
-      <button  onclick= "deleteLastRow('income_table', 'yes')"> Delete Row </button>
+      <button   style="background-color: rgb(61, 171, 201);"  onclick= "addRow('income_table', 'yes' )"  > Insert Row </button>
+
     </div>
   </div>
     <!-- INCOME TABLE -->
@@ -60,15 +75,27 @@
   
   <div style="max-width: 620px;  width: 100% ; min-width: 150px; height: 65px;">
     <div style="position: relative;  float : right; margin-right :0px;">
-      <button   onclick= "addRowLabor()"  > Insert Row </button>
-      <button  onclick= "deleteLastRow('labor_table', 'labor')"> Delete Row </button>
+      <button style="background-color: rgb(228, 65, 160);"  onclick= "deleteLastRow('labor_table', 'labor')"> Delete Row </button>
+      <button style="background-color: rgb(61, 171, 201);"  onclick= "addRowLabor()"  > Insert Row </button>
     </div>
   </div>
 
 
-<td>
-  <input list='income_pymt_list'> </input> 
- </td>
+<br>
+<br>
+
+  <div style="max-width: 620px;  width: 100% ; min-width: 150px; height: 65px;">
+    <div style="position: relative;  float : left; margin-left :15px;">
+      <button style="background-color: rgb(163, 92, 230);"  onclick= "normalScreenMode()" > Exit FullScreen </button>
+      <button style="background-color: rgb(224, 208, 87);"  onclick= "gofullScreenMode()" > Go Full Screen</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
 
 <datalist id='income_pymt_list'> 
   <option>credit</option>
@@ -96,6 +123,10 @@
 
 <script>
 // window.addEventListener("pointerup", fixHeights, false)
+let all_table_data =[]
+
+function gofullScreenMode() { document.body.requestFullscreen();  }
+function normalScreenMode() { document.exitFullscreen(); }
 
 let exp_row =`<tr onmouseout="fixHeights(this)">
     <td> <textarea class = 'inputs' id= "text_input_proj" type='text'> </textarea> </td>
@@ -121,6 +152,7 @@ function addRowLabor()
       {
         newInput.type = 'number'
         newInput.value ='0.00'
+        newInput.className = 'input_hours'
       }
       newCell.append(newInput)
     }
@@ -280,6 +312,38 @@ function computeTotal(class_name)
         //  console.log('this height is' , x.children[0].style.height, ' it should be', heights )
         }
   }
+}
+
+
+function getRowData(tableId){
+    console.log('hi i am fix the heights function')
+    theTableRow=document.getElementById(tableId).getElementsByTagName('td')
+    let table_dic = { project : '',  description : '', amount : '' , method : ''}
+    all_table_data=[]
+    ct = 1 
+    for( cell of theTableRow )
+      {
+        if ( ct == 5 )
+              {
+                table_dic = { project : '',  description : '', amount : '' , method : ''}
+                ct = 1
+              }
+        // console.log('this is cell of row', cell)
+        // console.log('this is cell of row row.children[0]', cell.children[0])
+        if ( cell.children.length > 0 )
+            {
+              console.log('this is cell of row row.children[0].value', cell.children[0].value)
+              v = cell.children[0].value
+              if ( ct ==1 ) table_dic.project = v
+              if ( ct ==2 ) table_dic.description = v
+              if ( ct ==3 ) table_dic.amount = v
+              if ( ct ==4 ) table_dic.method = v
+              if ( ct ==4 ) all_table_data.push(table_dic)
+              ct +=1
+            }
+       }
+       console.log( 'all_table_data' , all_table_data)
+       return all_table_data
 }
 </script>
 

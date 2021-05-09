@@ -92,6 +92,8 @@ var update1 = { location : "Crazy Land", status : "Insane"};
 //if user already has memories in local, get that array and push into it.
 //else create a blank array and add the memory.
 // https://stackoverflow.com/questions/23728626/localstorage-and-json-stringify-json-parse
+
+/*
 function updateMyLocalStorage( updateItem){
 mytestLocalStorage = localStorage.getItem('mytestLocalStorage') ?
               JSON.parse(localStorage.getItem('mytestLocalStorage')) : 
@@ -101,7 +103,7 @@ localStorage.setItem('mytestLocalStorage', JSON.stringify(mytestLocalStorage));
 
 console.log('mytestLocalStorage ', mytestLocalStorage)
 }
-
+*/
 //updateMyLocalStorage({ location : "Crazy Land", status : "Insane"})
 
 function queryMyStorage( queryKey, queryValue)
@@ -120,7 +122,7 @@ function queryMyStorage( queryKey, queryValue)
 
   console.log('final filter is', finalFilter)
 }
-
+/*
     function uniqueifyMyStorage( fileName )
       {
         // myLocalJsonStorage = localStorage.getItem('mytestLocalStorage') 
@@ -150,6 +152,7 @@ function queryMyStorage( queryKey, queryValue)
     //     console.log(x)
     // console.log(`queryKey is ${queryKey } queryValue is ${ queryValue }  filteredResponse is ${filteredData} `)
 }
+*/
 /*
 viewMyStorage()
 queryMyStorage( 'location', 'Crazy Land' )
