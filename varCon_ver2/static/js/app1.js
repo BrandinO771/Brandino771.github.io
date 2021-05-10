@@ -61,6 +61,10 @@ var update1 = { location : "Crazy Land", status : "Insane"};
 //if user already has memories in local, get that array and push into it.
 //else create a blank array and add the memory.
 // https://stackoverflow.com/questions/23728626/localstorage-and-json-stringify-json-parse
+
+
+
+/*
 function updateMyLocalStorage( updateItem){
     mytestLocalStorage = localStorage.getItem('mytestLocalStorage') ?
                 JSON.parse(localStorage.getItem('mytestLocalStorage')) : 
@@ -70,6 +74,10 @@ function updateMyLocalStorage( updateItem){
 
     console.log('mytestLocalStorage ', mytestLocalStorage)
 }
+*/
+
+
+
 
 //updateMyLocalStorage({ location : "Crazy Land", status : "Insane"})
 /*

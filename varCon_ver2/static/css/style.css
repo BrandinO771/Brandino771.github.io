@@ -204,9 +204,8 @@ tr{
 th{
   border: 2px; 
   border-style: solid; 
-  border-color: rgb(53, 63, 53);
-    /* resize : vertical; */
-  /* overflow: auto; */
+  border-color: rgb(63, 61, 53);
+  background-color: rgb(214, 208, 200);
 }
 
 td{

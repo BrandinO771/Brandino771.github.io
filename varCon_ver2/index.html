@@ -1,5 +1,7 @@
 <!-- 5-8-21 START 1:30 until 3:50 with break lets say 1 hour-->
-<!-- 5-9-21 start 10 end 11AM , get data from any income and expense tables  -->
+<!-- 5-9-21 start 10:10  end 1:10AM , get data from any income and expense tables  -->
+<!-- 5-9-21 start 6:00  end 7PM , implemented new fullscreen mode using w3  example and mozzilla samples  -->
+
 <!DOCTYPE html>
 <html>
 
@@ -86,13 +88,13 @@
 <br>
 <br>
 
-  <!-- <div style="max-width: 620px;  width: 100% ; min-width: 150px; height: 65px;">
+  <div style="max-width: 620px;  width: 100% ; min-width: 150px; height: 65px;">
     <div style="position: relative;  float : left; margin-left :15px;">
       <button style="background-color: rgb(163, 92, 230);"  onclick= "normalScreenMode()" > Exit FullScreen </button>
       <button style="background-color: rgb(224, 208, 87);"  onclick= "gofullScreenMode()" > Go Full Screen</button>
     </div>
   </div>
-</div> -->
+</div>
 
 
 
@@ -126,9 +128,63 @@
 <script>
 // window.addEventListener("pointerup", fixHeights, false)
 let all_table_data =[]
+let fullScreenActive = false
+// function gofullScreenMode() { document.body.requestFullscreen();  }
+function normalScreenMode() 
+{ 
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+      } else if (document.webkitExitFullscreen) { /* Safari */
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) { /* IE11 */
+        document.msExitFullscreen();
+      }
+      fullScreenActive = false;
+      ws = document.getElementById('workSheet');
+      ws.style.transform = 'scale(1,1)'
+      
+}
 
-function gofullScreenMode() { document.body.requestFullscreen();  }
-function normalScreenMode() { document.exitFullscreen(); }
+function gofullScreenMode() 
+{ 
+
+  var elem = document.documentElement;
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+      // } else if (elem.webkitRequestFullscreen) { /* Safari */
+      //   elem.webkitRequestFullscreen();
+      // } else if (elem.msRequestFullscreen) { /* IE11 */
+      //   elem.msRequestFullscreen();
+      }
+    fullScreenActive = true
+  AdjustFullScreen();
+
+}
+
+// window.onresize =  AdjustFullScreen; // detect full screen change
+window.addEventListener('resize', AdjustFullScreen);
+ 
+function AdjustFullScreen()
+  {
+    console.log('AdjustFullScreen() running fullScreenActive =', fullScreenActive )
+    if ( fullScreenActive == true) 
+      {
+        ws = document.getElementById('workSheet');
+
+        if ( screen.width <=360)
+        {
+          ws.style.transformOrigin = 'top left'
+          ws.style.transform = 'scale(.55,.55)'
+        }
+        if ( screen.width > 360)
+          {
+            ws.style.transformOrigin = 'top left'
+            ws.style.transform = 'scale(.95,.95)'
+          }
+      }
+  }
+
+
 
 let exp_row =`<tr onmouseout="fixHeights(this)">
     <td> <textarea class = 'inputs' id= "text_input_proj" type='text'> </textarea> </td>
