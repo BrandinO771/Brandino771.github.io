@@ -129,6 +129,7 @@
 // window.addEventListener("pointerup", fixHeights, false)
 let all_table_data =[]
 let fullScreenActive = false
+let initialScreenSize = screen.width
 // function gofullScreenMode() { document.body.requestFullscreen();  }
 function normalScreenMode() 
 { 
@@ -142,7 +143,6 @@ function normalScreenMode()
       fullScreenActive = false;
       ws = document.getElementById('workSheet');
       ws.style.transform = 'scale(1,1)'
-      
 }
 
 function gofullScreenMode() 
@@ -171,16 +171,33 @@ function AdjustFullScreen()
       {
         ws = document.getElementById('workSheet');
 
-        if ( screen.width <=360)
-        {
-          ws.style.transformOrigin = 'top left'
-          ws.style.transform = 'scale(.55,.55)'
-        }
-        if ( screen.width > 360)
+        if ( initialScreenSize == 412 || initialScreenSize == 869 )// NOTE 10
           {
-            ws.style.transformOrigin = 'top left'
-            ws.style.transform = 'scale(.95,.95)'
+            if ( screen.width <=412 )
+            {
+              ws.style.transformOrigin = 'top left'
+              ws.style.transform = 'scale(.65,.65)'
+            }
+            if ( screen.width > 412 )
+              {
+                ws.style.transformOrigin = 'top left'
+                ws.style.transform = 'scale(1.2, 1.2)'
+              }
           }
+          if ( initialScreenSize == 360 || initialScreenSize == 640 )// G4 and NOTE 2
+          {
+            if ( screen.width <=360 )
+            {
+              ws.style.transformOrigin = 'top left'
+              ws.style.transform = 'scale(.55,.55)'
+            }
+            if ( screen.width >360)
+              {
+                ws.style.transformOrigin = 'top left'
+                ws.style.transform = 'scale(.9, .9)'
+              }
+          }
+          
       }
   }
 
