@@ -1,0 +1,276 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>VARCON Daily Log Input</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="static/css/style.css">
+   <!-- <link rel="manifest" href="manifest.json"> -->
+</head>
+<body style="background-color: rgb(233, 226, 216);">
+
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+  <!-- ///////////////////////////////////----------ALL CONTENT IN THIS DIV----------------///////////////////////////////////////////////////////////////////// -->
+  <div id='workSheet' style="max-width : 630px; background-color: rgb(233, 226, 216);  ">
+   <br>
+   
+        
+      <!--///////////----- DIV FOR CHECK BOX ------////////// -->
+      <div style="margin-top: 4px;">
+        <input onclick="toggleMenuOpts('allTopMenu', this.checked);"  type='checkbox' id='menuOptsCheckBoxId'  style='margin-left:20px;  transform :translate(0px,-5px);  float:left;height:30px; width:30px;  margin-top: 2px;' >
+        </input>
+        <label for='menuOptsCheckBoxId' style='margin-left:20px; transform :translate(10px,0px);  font-family: Arial; font-size: medium; font-weight: bold;'>
+         See Menu Options</label>
+      </div>
+      <a  style="float: right;" href="reviewData.html" target="____" > Go To Review Page <a/>
+      <br>
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+  <!-- ///////////////////////////////////-------------FILE UPLOADS------------------///////////////////////////////////////////////////////////////////// -->
+  <br>
+  <div id='allTopMenu' style="height:100%; display:none; ">
+  <div name=uploadButtonsDiv style = 'width: 100% ; min-width: 600px; background-color: rgba(76, 0, 130, 0.089); border-radius: 20px;'>
+
+
+  <!-- UPLOAD JSON FILE BUTTONS -->
+    <input type="file" id="fileUpload1"  style='margin-left :15px;' onmouseup="updateFileUI1(this.id)"></input> 
+    <input style="margin-top:5px; margin-left:10px; height:30px; width:160px; font-size:small; font-weight: 700; 
+    background-color: rgb(233, 220, 164); border-radius:5px;"
+    class='formButtons' type="button" id="upload" 
+    value="Upload Selected File" onclick="Upload()"></input> 
+    <p id='data_fileSelected_text_ui1' style='font-family: Arial; color: rgb(218, 8, 8); font-size: medium; '>  -- NO FILE : HAS BEEN CHOSEN -- </p>
+    <p id='data_fileUploaded_text_ui1' style='font-family: Arial; color: rgb(218, 8, 8); font-size: medium; '>  -- NO FILE : IS LOADED -- </p>
+    <p id='data_fileName_text_ui1' style='font-family: Arial; color:  blue; font-size: medium;  ' > </p>
+  </div>
+<!-- ////////////-------ALL SAVE BUTTONS------------------///////////////////////////////////////////////////////////////////// -->
+<div name=saveButtonsContainer id='saveFileDivId' style = 'width: 100% ; min-width: 600px;  padding-top: 5px; 
+    padding-bottom: 5px;margin-left: 15px; height:70px; max-height: 200px;
+    max-width: 600px; z-index: 1; margin-top: 5px; margin-bottom: 3px; background-color: rgba(226, 43, 43, 0);' >
+  <!-- ///////////------TOP LEVEL SAVE BUTTONS------------------///////////////////////////////////////////////////////////////////// -->
+    <div id='allTopLevelSaveButts'>
+      <button class='formButtons' id=buttonSavedFormData style="float:left; width: 130px; font-size:small; font-weight: 700; margin-right: 30px; background-color: rgb(74, 170, 235);" 
+      onclick="checkIfCanSave()">Save Data</button>
+      <button class='formButtons' id=buttonOverwriteJson style="float:left; visibility: hidden; font-size:small; font-weight: 700; background-color: rgb(247, 161, 81);" 
+      onclick="makeVisible('confirmOverWriteButtonsDiv')" >Update Existing Date Entry</button>
+      <!--///////////----- DIV FOR CHECK BOX ------////////// -->
+      <div id="checkBoxSaveNewFileDiv"; style=" visibility: hidden; background-color: rgb(75, 211, 186); float:left; margin-left: 40px; border-radius: 10px;">
+        <div style="float: left; max-width: 120px; text-align: center;  margin-right: 20px; ">
+          <label for='saveNewFileCheckBoxId' style = 'margin-left : 20px;font-family: Arial; font-size: small; margin-right: 10px; font-weight: bold;'>
+            ( New File ) Check Here Then Click Save</label>
+        </div>
+        <input id='saveNewFileCheckBoxId'  style = 'transform :translate(0px,5px); height:30px; width:30px; margin-right: 10px; margin-top: 2px' type='checkbox' 
+        ></input> 
+      </div>
+    </div>
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+  <!-- ///////-------------ALL CONFIRM BUTTONS------------------///////////////////////////////////////////////////////////////////// -->
+    <div id='allConfirmButtons' style="display:contents; height: 60px; background-color: rgba(0, 240, 0, 0);">
+        <div id ='confirmSaveButtonsDiv' style='float:left; visibility: hidden;' >
+          <!-- ///////-----SAVE CONFIRM BUTTONS------------------///////////////////////////////////////////////////////////////////// -->
+          <button class='formButtons' id=buttonSaveYes style="height: 100%; margin-right:25px; width:50px; font-weight: 700; background-color: rgb(66, 213, 71); " 
+          onclick="saveAllFormData()" >YES SAVE</button>
+          <button class='formButtons' id=buttonSaveNo  style="width : 50px;font-weight: 700; background-color: rgb(247, 47, 140); " 
+          onclick="resetAllSaveButtons()" >DON'T SAVE</button>
+        </div>
+          <!-- ///////-----UPDATE CONFIRM BUTTONS------------------///////////////////////////////////////////////////////////////////// -->
+        <div id ='confirmOverWriteButtonsDiv' style='float:left; margin-left:25px; visibility: hidden;'>
+          <button class='formButtons' id=buttonUpdateYes style="margin-right: 75px;   width:55px; font-weight:700; background-color: rgb(66, 213, 71); " 
+          onclick="overWriteJSONData()" >YES UPDATE</button>
+          <button class='formButtons' id=buttonUpdateNo style="  width:55px; font-weight:700; background-color: rgb(247, 47, 140); " 
+          onclick="resetAllSaveButtons()" >DON'T UPDATE </button>
+        </div>
+    </div>
+</div>
+</div>
+
+    <!-- div above if want to populate generic table with uploaded data -->
+<br>
+<br>
+
+<!-- SELECT DATE TO LOAD DATA -->
+<!-- 'Type or Select Date YYYY-MM-DD' -->
+<div style = 'width: 100% ; min-width: 600px;'> 
+  <!-- ///////-------------CLEAR FORM BUTTON------------------///////////////////////////////////////////////////////////////////// -->
+  <button class='formButtons'  id='buttonDeleteAllTablesRows' style ='margin-left: 10px; width:130px; font-weight:700; font-size:12px;  background-color: rgb(228, 68, 108);'  
+  onclick="makeVisible('confirmClearFormButtonsDiv' , 'displayContent')" >Reset Form</button>
+  <div style="float:right">
+    <!-- ///////-------------LOAD BY DATE INPUT------------------///////////////////////////////////////////////////////////////////// -->
+    <input id='dropDownSelSavedDate' list='savedDates'  placeholder='Type or Select Date YYYY-MM-DD' min="2020-01-01" max="9999-12-31"
+    style='width: 210px; margin-left: 20px;'> </input> 
+    <!-- ///////-------------LOAD DATA BUTTON------------------///////////////////////////////////////////////////////////////////// -->
+    <button class='formButtons'  id='buttonLoadJSONByDate' style ='padding-left:8%; padding-right:8%; margin-left: 10px; width:130px; font-weight:700; font-size:12px; 
+    background-color: rgb(183, 123, 211);'  
+    onclick="runUnpackJson()" >Load Data Into Form</button>
+    <datalist id='savedDates' > </datalist>
+  </div>
+
+   <!-- ///////-------------CLEAR FORM -- CONFIRM BUTTONS------------------///////////////////////////////////////////////////////////////////// -->
+  <div id='confirmClearFormButtonsDiv' style='display: none; margin-top:3px; margin-left:10px;'>
+    <button class='formButtons'  id=buttonClearYes style="margin-right: 15px;   width:55px; font-weight:700; background-color: rgb(66, 213, 71); " 
+    onclick="runDeleteAllRows()" > YES CLEAR</button>
+    <button class='formButtons' id=buttonClearNo style="  width:55px; font-weight:700; background-color: rgb(248, 43, 139); " 
+    onclick="resetAllSaveButtons()"> DON'T CLEAR </button>
+  </div>
+</div>
+
+
+<!-- creates a line across page -->
+  <hr>
+<!-- creates a line across page -->
+<!-- ALL HTML APPENDED TO THIS DIV -->
+   <div style = 'width: 100% ; min-width: 600px; text-align: center;'> 
+  <p style=" margin-top:25px; font-family: Arial;" > VAR CON Construction - Daily Activity Log </p>
+  </div>
+  <br>
+
+    <!-- DATE INPUT FIELD -->
+    <div style='width: 600px; min-width: 100px; margin-top:15px; overflow: auto;'>
+        <div style='float: right;' >
+          <label style="  font-size:smaller; font-weight:700; font-family:Arial; margin-right:5px; "  > FORM DATE </label>
+          <input  id='userDateInput' type = 'date'  label ='Date' min="2020-01-01" max="2999-12-31" placeholder="yyyy-mm-dd"></input> 
+        </div>
+    </div>
+
+
+      <!-- EXPENSE TABLE -->
+    <p style="font-family: Arial;" > Expenses : </p>
+    <div>
+    <table id="expenses_table" style="margin-top: 20px;">
+      <!-- <tablebody> -->
+      <tr style='background-color: rgb(218, 188, 197);' >
+        <th  style='min-width: 104px;'> Project</th>
+         <th style="min-width: 304px;"> Description </th> 
+         <th style='min-width: 86px;' > Amount</th> 
+         <th style='min-width: 86px;' > Payment Method</th>
+         <th style='min-width: 40px;' > Delete Row</th>
+    </tr>
+    <!-- </tablebody> -->
+    </table>
+
+    <div style="max-width: 675px;  width: 100% ;margin-top:4px; min-width: 675px; height: 65px;">
+      <div style="position: relative;  float : right; margin-right :0px;">
+        <button class='formButtons'  style="background-color: rgb(61, 201, 129);"  onclick= "csvDownloader('expenses_table')">Download CSV</button>
+        <button class='formButtons'  onclick= "computeTotal('input_expenseAmount')"> Calc Total </button>
+        <button class='formButtons'  style="background-color: rgb(61, 171, 201);"   onclick= "addRow('expenses_table', 'no')"  > Insert Row </button>
+        <button class='formButtons' style="background-color: rgb(213, 96, 164);" onclick= "deleteLastRow('expenses_table', 'no')"> Delete Row </button>
+      </div>
+    </div>
+      <!-- EXPENSE TABLE -->
+
+
+      <!-- INCOME TABLE -->
+      <p style="font-family: Arial;" > Income : </p>
+      <div>
+      <table id="income_table" style="margin-top: 20px;">
+        <tr style='background-color: rgb(188, 218, 189);' >
+          <!-- <th>Project</th> <th>Description</th> <th>Amount</th> <th>Payment Method</th><th>Delete Row</th> -->
+          <th  style='min-width: 104px;'> Project</th>
+          <th style="min-width: 304px;"> Description </th> 
+          <th style='min-width: 86px;' > Amount</th> 
+          <th style='min-width: 86px;' > Payment Method</th>
+          <th style='min-width: 40px;' > Delete Row</th>
+        </tr>
+      </table>
+      
+      <!-- <div style="max-width: 620px;  width: 100% ; min-width: 600px; height: 65px;"> -->
+    <div style="max-width: 675px;  width: 100% ; min-width: 675px; height: 65px; margin-top:4px;">
+        <div style="position: relative;  float : right; margin-right :0px;">
+          <button class='formButtons'  style="background-color: rgb(61, 201, 129);"  onclick= "csvDownloader('income_table')"> Download CSV</button>
+          <button class='formButtons'  onclick= "computeTotal('input_incomeAmount')"> Calc Total </button>
+          <button class='formButtons'   style="background-color: rgb(61, 171, 201);"  onclick= "addRow('income_table', 'yes' )"  > Insert Row </button>
+          <button class='formButtons' style="background-color:rgb(213, 96, 164);"  onclick= "deleteLastRow('income_table', 'yes')"> Delete Row </button>
+        </div>
+      </div>
+        <!-- INCOME TABLE -->
+      
+        <!-- LABOR TABLE -->
+      <p style="font-family: Arial;" > Labor : </p>
+      <div>
+      <table id="labor_table" style="margin-top: 20px;">
+        <tr style='background-color: rgb(228, 208, 169);' >
+          <th style='min-width: 173px;'> Employee Name </th> 
+          <th style='min-width: 173px;'> Job Site</th> 
+          <th style='min-width: 173px;'> Hours</th>
+          <th style='min-width: 40px;' > Delete Row</th>
+      </tr>
+      </table>
+      
+      <div style="max-width: 620px;  width: 100% ; margin-top:4px; min-width: 500px; height: 65px; ">
+        <div style="position: relative;  float : right; margin-right :0px;">
+          <button class='formButtons'  style="background-color: rgb(61, 201, 129);"  onclick= "csvDownloader('labor_table')"> Download CSV</button>
+          <button class='formButtons' style="background-color: rgb(61, 171, 201);"  onclick= "addRowLabor()"  > Insert Row </button>
+          <button class='formButtons' style="background-color: rgb(213, 96, 164);"  onclick= "deleteLastRow('labor_table', 'labor')"> Delete Row </button>
+        </div>
+      </div>
+ <!--END LABOR TABLE -->
+
+    <br>
+    <br>
+
+    <!-- Full Screen Options -->
+      <div style="max-width: 620px;  width: 100% ; min-width: 150px; height: 65px;">
+        <div style="position: relative;  float : left; margin-left :15px;">
+          <button class='formButtons'  style="background-color: rgb(163, 92, 230);"  onclick= "normalScreenMode()" > Exit FullScreen </button>
+          <button class='formButtons' style="background-color: rgb(224, 208, 87);"  onclick= "gofullScreenMode()" > Go Full Screen</button>
+        </div>
+      </div>
+    </div>
+       
+
+
+<br>
+
+
+
+  <!-- DROP DOWN SELECTIONS  -->
+    <datalist id='income_pymt_list'> 
+      <option>credit</option>
+      <option>check</option>
+      <option>cash</option>
+    </datalist>
+
+  <datalist id='expense_pymt_list'> 
+    <option>HomeDepot Card</option>
+    <option>VarCon1 Card</option>
+    <option>VarCon2 Card</option>
+    <option></option>
+    <option></option>
+  </datalist>
+
+
+
+    <datalist id='employee_list'> 
+      <option>Danny</option>
+      <option>Junior</option>
+      <option>Mauricio</option>
+      <option>Jesus</option>
+      <option>Laborer1</option>
+      <option>Laborer2</option>
+      <option>Omar</option>
+      <option>Adrian</option>
+      <option>Thomas</option>
+      <option>Alex</option>
+      <option>Noah</option>
+      <option></option>
+      <option></option>
+    </datalist>
+
+    
+    <div style="float: right;"> ver 2.0 </div>
+<!-- END OF WORKSHEET DIV -->
+</div> 
+<!-- END OF WORKSHEET DIV -->
+
+</body>
+
+  <script src="static/js/jsonManager.js"></script>
+  <script src="static/js/tableManager.js"></script>
+  <script src="static/js/screenManager.js"></script>
+  <script src="static/js/theDate.js"></script>
+  <script src="static/js/csvDownloader.js"></script>
+
+
+
+</html>

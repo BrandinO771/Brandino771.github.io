@@ -1,0 +1,299 @@
+
+option{
+font-weight: bold;
+content: inherit;
+} 
+
+select{
+  font-weight: bold;
+  content: inherit;
+  }
+
+.filters{
+  margin-bottom: 5px;
+}
+
+
+.textClass{
+  margin-bottom: 3px;
+  margin-left: 10px;
+}
+
+/* div{
+  resize: vertical;
+} */
+
+p{
+  display: block;
+  margin-left : 20px;
+  font-size: 20px;
+  font-style: bold;
+  margin-bottom: -10px;
+  font-weight: bold;
+}
+
+
+table{
+  border: 4px; 
+  border-style: solid; 
+  border-color:  rgb(53, 63, 53);
+  border-spacing: 0px;
+  resize : vertical;
+  overflow: auto;
+  transform-origin: top left;
+  max-width: 600px;
+  margin-left: 2%;
+  margin-right: 2%;
+  width: 95%;
+  border-radius: 5px;
+}
+
+
+tr{
+  border: 1px; 
+  border-style: solid; 
+  border-color:  rgb(53, 63, 53);
+  resize : vertical;
+  overflow: auto;
+  min-height: 10px;
+  min-width: 20px;
+  width: 100%;
+  max-width:95%;
+}
+
+th{
+  border: 2px; 
+  border-style: solid; 
+  border-color: rgb(63, 61, 53);
+  /* background-color: rgb(214, 208, 200); */
+}
+
+td{
+  border: 1px; 
+  border-style: solid; 
+  border-color:  rgb(53, 63, 53);
+  top: 1%;
+  align-items:inherit;
+  /* height: 0px; */
+  /* height: 100%;
+  width: 100%; */
+  /* resize : auto;
+  overflow: auto; */
+} 
+
+
+.inputs{
+  position: relative;
+  transform-origin: top left;
+  display: flex;
+  align-items: center;
+  top : 0%;
+  left: 0%;
+  margin-top: 1%;
+  padding-top:1%;
+  height: 100%;
+  min-height: 20px;
+}
+
+#text_input_proj{
+  width: auto;
+  height: auto;
+  margin-top: 5px;
+  max-width: 100px;
+  /* min-width: 100px; */
+  min-height:20px;
+  top : inherit;
+  left: 0px;
+  transform-origin: top left;
+}
+
+#text_input_proj1{
+  width: auto;
+  height: auto;
+  margin-top: 5px;
+  max-width: 100px;
+  min-width: 100px;
+  min-height:20px;
+  top : inherit;
+  left: 0pstyle='width: ;' x;
+  transform-origin: top left;
+}
+
+#expenseGrandTotal{
+  font-weight: bold;
+  min-height: 20px;
+  height : 20px;
+  text-align: right;
+  font-weight: bolder;
+}
+
+#incomeGrandTotal{
+  font-weight: bold;
+  min-height: 20px;
+  height : 20px;
+  text-align: right;
+}
+ 
+#text_input_desc{
+  width: auto;
+  margin-top: 5px;
+  max-width: 300px;
+  min-width: 300px;
+  min-height: 20px;
+  top : 0%;
+  left: 0%;
+  transform-origin: top left;
+}
+
+ 
+#text_input_desc1{
+  width: auto;
+  margin-top: 5px;
+  max-width: 300px;
+  min-width: 300px;
+  min-height: 20px;
+  top : 0%;
+  left: 0%;
+  transform-origin: top left;
+}
+
+#expense_amt{
+  width: auto;
+  height: auto;
+  margin-top: 5px;
+  max-width: 80px;
+  min-width: 80px;
+  min-height:20px;
+  top : 1%;
+  margin-top: 1%;
+  left: 0px;
+  /* align-items: center; */
+  text-align: right;
+}
+
+.input_hours{
+  text-align: right;
+}
+
+#income_amt{
+  width: auto;
+  height: auto;
+  margin-top: 5px;
+  max-width: 80px;
+  min-width: 80px;
+  min-height:20px;
+  top : 1%;
+  margin-top: 1%;
+  left: 0px;
+  align-items: center;
+  text-align: right;
+}
+
+#pymt_method{
+  width: auto;
+  height: auto;
+  margin-top: 5px;
+  max-width: 80px;
+  min-width: 80px;
+  min-height:20px;
+  top : 1%;
+  margin-top: 1%;
+  left: 0px;
+  align-items: center;
+}
+
+#pymt_method1{
+  width: auto;
+  height: auto;
+  margin-top: 5px;
+  max-width: 80px;
+  min-width: 80px;
+  min-height:20px;
+  top : 1%;
+  margin-top: 1%;
+  left: 0px;
+  align-items: center;
+}
+
+  /* #fileUpload, button{
+    box-shadow: 4px 4px 8px 0px rgba(253, 248, 243, .8) 
+    inset, -4px -4px 8px 0px   rgba(55, 54, 53, .7)  inset,  5px 7px 5px 1px  rgba(2, 2, 15, .2 );
+  } */
+
+
+
+button{
+  min-height: 50px;
+  font-size: 10px;
+  border-style:groove;
+  border-width: 3px;
+  border-color: black;
+  border-radius: 5px;
+  background-color: rgb(142, 140, 191);
+  margin-right :5px;
+  margin-top : 3px;
+  
+}
+
+/* box-shadow: 4px 4px 8px 0px rgba(253, 248, 243, .8) 
+inset, -4px -4px 8px 0px   rgba(55, 54, 53, .7)  inset,  5px 7px 5px 1px  rgba(2, 2, 15, .2 ); */
+button:hover{
+  background-color: rgb(184, 183, 221);
+}
+button:active{
+  background-color: rgb(237, 248, 204);
+  border-color: rgb(253, 237, 4);
+}
+/* button:afterd{
+  border-color: black;
+  background-color: rgb(142, 140, 191);
+} */
+
+.filterButtons{
+  box-shadow: 4px 4px 4px 0px rgba(253, 248, 243, .8) 
+  inset, -4px -4px 4px 0px   rgba(55, 54, 53, .7)  inset,  5px 7px 5px 1px  rgba(2, 2, 15, .2 );
+  font-size: medium; 
+  font-family: Arial; 
+}  
+
+.formButtons{
+  box-shadow: 2px 2px 2px 0px rgba(241, 237, 233, 0.7) 
+  inset, -2px -2px 2px 0px   rgba(55, 54, 53, .7)  inset,  2px 3px 2px 1px  rgba(2, 2, 15, .2 );
+}
+
+.filterDiv{
+  margin-left: 15px; 
+  border-style: solid; 
+  border-radius: 10px;
+   max-width: 600px; 
+   padding-left: 10px; 
+   padding-bottom: 10px; 
+   margin-top: 5px;
+   background-color: rgb(183, 183, 226);
+   font-family: Arial;
+   transform-origin: top left;
+   transform: scale(.85,.85);
+   visibility: hidden ;
+   opacity: 0;
+  margin-bottom: -10px;
+  transition-duration: .3s;
+}
+
+#expenseFilterDiv{
+  background-color:  rgba(255, 142, 157, 0.94);
+}
+#incomeFilterDiv {
+  background-color:rgba(106, 250, 154, .35); 
+}
+#laborFilterDiv{
+  background-color:rgba(250, 168, 106, .65); 
+}
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}  
+
+
+

@@ -1,0 +1,176 @@
+   
+   
+   <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="static/css/style.css">
+        <title>Review Daily Log Data</title>
+    </head>
+  <body  style='background-color: rgb(235, 216, 196);'>
+        
+  <div id= 'all_review_info' style='max-width: 600px;'>
+
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+  <!-- ///////////////////////////////////-------------FILE UPLOADS------------------///////////////////////////////////////////////////////////////////// -->
+        <br>
+      <!-- UPLOAD JSON FILE BUTTONS -->
+        <input  type="file" id="fileUpload" style='margin-left :15px;' onmouseup="updateFileUI(this.id)"/></input> 
+        <input style="margin-top:5px; margin-left:10px;" class='filterButtons' type="button" id="upload" value="Upload Selected File" onclick="upload2();"/></input> 
+        <p id='data_fileSelected_text_ui' style='font-family: Arial; color: rgb(218, 8, 8); font-size: medium; '>  -- NO FILE : HAS BEEN CHOSEN -- </p>
+        <p id='data_fileUploaded_text_ui' style='font-family: Arial; color: rgb(218, 8, 8);  font-size: medium; '>  -- NO FILE : IS LOADED -- </p>
+        <p id='data_fileName_text_ui' style='font-family: Arial; color:  blue;  font-size: medium; '> </p>
+        
+        <div id="dvCSV"></div>  <!-- div above if want to populate generic table with uploaded data -->
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+  <!-- ///////////////////////////////////-------------EXPENSES------------------///////////////////////////////////////////////////////////////////// -->
+        <br>
+        <svg height="20" width="100%"><line x1="0" y1="0" x2="100%" y2="0" style="stroke:rgba(87, 87, 87, 0.3); stroke-width:30px" /></svg>
+        <div style="margin-left: 15px; background-color: rgba(255, 142, 157, 0.275); font-family: Arial; border-radius: 20px; border-style: solid; border-color: rgba(0, 0, 0, 0.056); height: 35px; padding-top: 10px; ">
+          <p style="margin-top: 2px; margin-left :10px; color: rgb(75, 75, 75);"> EXPENSES : </p>
+        </div>
+        <div style='margin-top: 5px;'>
+        <button class='filterButtons' style ='margin-left: 15px; width: 150px; font-size: medium; font-family: Arial; background-color: rgb(255, 142, 157);'  
+        onclick= "makeOneTableWithArray('expenses_table', 'get_array_by_id')"> Get All Expenses </button>
+
+        <button id='expClearTableId' class='filterButtons' style ='visibility: hidden; margin-left: 15px; margin-right: 10px; background-color: rgb(211, 168, 155);' 
+        onclick="clearTableRows('expenses_table')" >Clear Table </button>
+
+        <button   id=expCSVButtonId class='filterButtons' style=' width: 140px; font-size: medium; font-family: Arial; 
+        background-color: rgb(250, 207, 97);  margin-left: 10px; visibility: hidden ;'
+        onclick="csvDownloadFiltered( 'exp1' )" 
+        >DowLoad CSV  </button>
+       
+
+        <div style = 'padding-top: 5px; padding-bottom: 5px; margin-left: 15px; height: 50px; max-height: 70px; 
+        max-width: 220px; z-index: 1; margin-top: 5px; margin-bottom: 3px;' >
+       
+          <label for='showExpFilter1Options' style = ' font-family: Arial; font-size: medium; margin-right: 10px; font-weight: bold;'> Show Filter Options </label>
+          <input id='showExpFilter1Options'  style = 'transform :translate(0px,5px); height:30px; width:30px;  margin-top: 2px' type='checkbox' 
+          onclick= "appendNewFilter(this.checked, 'expenseFilterDiv', 'exp1' )"></input> 
+        </div>
+      </div>
+
+      <div id='expenseFilterDiv' class='filterDiv'  >
+       </div>
+      <!-- end expense filter div -->
+          <table id="expenses_table" style="margin-top: 2px;">
+              <tr style ='background-color: rgb(255, 142, 157)'>
+              <th style="min-width: 60px;   ">Project</th> 
+              <th style="min-width: 200px;   ">Description</th> 
+              <th style="min-width: 60px;">Amount</th>
+               <th style="min-width: 20px;">Payment Method</th>
+               <th style="min-width: 80px;">date</th>
+          </tr>
+          </table>
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+  <!-- ///////////////////////////////////////////////---------------INCOME--------------///////////////////////////////////////////////////////////// -->
+        <br>
+        <svg height="20" width="100%"><line x1="0" y1="0" x2="100%" y2="0" style="stroke:rgba(87, 87, 87, 0.3); stroke-width:30px" /></svg>
+        <div style="background-color: rgba(106, 250, 154, 0.253); margin-left: 15px;  font-family: Arial; border-radius: 20px; border-style: solid; border-color: rgba(0, 0, 0, 0.056); height: 35px; padding-top: 10px; ">
+            <p style="margin-top: 2px; margin-left :10px; color: rgb(75, 75, 75);"> INCOME : </p>
+        </div>
+
+        <div style='margin-top: 5px;'>
+            <button class='filterButtons' style ='margin-left: 15px; width: 150px; font-size: medium; font-family: Arial; background-color: rgb(106, 250, 154);  '
+              onclick= "makeOneTableWithArray('income_table', 'get_array_by_id')"> 
+              Get All Income 
+            </button> 
+            <button id='incomeClearTableId' class='filterButtons' style ='visibility: hidden; margin-left: 15px; margin-right: 10px; background-color: rgb(211, 168, 155);' 
+              onclick="clearTableRows('income_table')" >
+              Clear Table 
+            </button>
+            <button   id=incomeCSVButtonId class='filterButtons' style=' width: 140px; font-size: medium; font-family: Arial; 
+              background-color: rgb(250, 207, 97);  margin-left: 10px; visibility: hidden ;'
+              onclick="csvDownloadFiltered( 'inc1' )">
+              DowLoad CSV  
+            </button>
+            <div style = 'padding-top: 5px; padding-bottom: 5px; margin-left: 15px; height: 50px; max-height: 70px; 
+                          max-width: 220px; z-index: 1; margin-top: 5px; margin-bottom: 3px;' >
+
+              <label for='showIncFilter1Options' style = ' font-family: Arial; font-size: medium; margin-right: 10px; font-weight: bold;'> 
+                Show Filter Options
+              </label> 
+              <input id='showIncFilter1Options'  style = 'transform :translate(0px,5px); height:30px; width:30px;  margin-top: 2px'
+                type='checkbox' onclick= "appendNewFilter(this.checked, 'incomeFilterDiv', 'inc1' )">
+              </input>
+            </div>
+      </div>
+
+      <div id='incomeFilterDiv' class='filterDiv'  >
+      </div>
+      <!-- end income filter div -->
+          <table id="income_table" style="margin-top: 2px; ">
+            <tr style ='background-color: rgb(106, 250, 154)'>
+              <th style="min-width: 60px;"    >Project</th> 
+              <th style="min-width: 200px;"   >Description</th> 
+              <th style="min-width: 60px;"    >Amount</th>
+              <th style="min-width: 20px;"   >Payment Method</th>
+              <th style="min-width: 80px;"   >date</th>
+          </tr>
+          </table>
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+  <!-- /////////////////////////////////////////////----------LABOR---------------/////////////////////////////////////////////////////////////////// -->
+          <br>
+          <svg height="20" width="100%"><line x1="0" y1="0" x2="100%" y2="0" style="stroke:rgba(87, 87, 87, 0.3); stroke-width:30px" /></svg>
+          <div style="background-color: rgba(250, 168, 106, 0.179); margin-left: 15px;  font-family: Arial; border-radius: 20px; border-style: solid; border-color: rgba(0, 0, 0, 0.056); height: 35px; padding-top: 10px; ">
+              <p style="margin-top: 2px; margin-left :10px; color: rgb(75, 75, 75);"> LABOR : </p>
+          </div>
+          <div style='margin-top: 5px;'>
+            <button class='filterButtons' style ='margin-left: 15px; width: 150px; font-size: medium; font-family: Arial; background-color: rgb(250, 168, 106);'
+              onclick= "makeOneTableWithArray('labor_table', 'get_array_by_id')"> 
+              Get All Labor
+            </button> 
+            <button id='laborClearTableId' class='filterButtons' style ='visibility: hidden; margin-left: 15px; margin-right: 10px; background-color: rgb(211, 168, 155);' 
+              onclick="clearTableRows('labor_table')" >
+              Clear Table 
+            </button>
+            <button   id=laborCSVButtonId class='filterButtons' style=' width: 140px; font-size: medium; font-family: Arial; 
+              background-color: rgb(250, 207, 97);  margin-left: 10px; visibility: hidden ;'
+              onclick="csvDownloadFiltered( 'lab1' )">
+              DowLoad CSV  
+            </button>
+            <div style = 'padding-top: 5px; padding-bottom: 5px; margin-left: 15px; height: 50px; max-height: 70px; 
+                max-width: 220px; z-index: 1; margin-top: 5px; margin-bottom: 3px;' >
+              <label for='showlabFilter1Options' style = 'font-family: Arial; font-size: medium; margin-right: 10px; font-weight: bold;'> 
+                Show Filter Options 
+              </label>
+              <input id='showIncFilter1Options'style = 'transform :translate(0px,5px); height:30px; width:30px;  margin-top: 2px'
+                type='checkbox' onclick= "appendNewFilter(this.checked, 'laborFilterDiv', 'lab1' )">
+              </input> 
+            </div>
+          </div>
+
+          <div id='laborFilterDiv' class='filterDiv'  ></div>
+          <!-- end income filter div -->
+            <table id="labor_table" style="margin-top: 2px;">
+              <tr style ='background-color: rgb(250, 168, 106)'>
+                <th style="min-width: 80px;  ">Employee Name</th> 
+                <th style="min-width: 100px; ">Job Site</th> 
+                <th style="min-width: 60px;"  >Hours</th>
+                <th style="min-width: 60px;"  >Date</th>
+            </tr>
+            </table>
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////end master div for page /////////////////////////////////////////-->
+<br>
+<br>
+<br>
+
+<div style="float: right;"> ver 2.0 </div>
+</div>
+<!-- /////////////////////end master div for page/////////////////////////////////////// -->
+<br><br><br><br><br>
+
+
+  <script src="static/js/jsonManager.js"></script>
+  <script src="static/js/screenManager.js"></script>
+  <script src="static/js/theDate.js"></script>
+  <script src="static/js/reviewDataManager.js"></script>
+
+
+
+    </body>
+    </html>
