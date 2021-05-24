@@ -35,9 +35,9 @@ function addRowLabor( ...jsonData )
       if ( i == 3 ) 
       {
         newInput.type = 'number'
-        newInput.value ='0.00'
+        newInput.value ='.00'
         newInput.className = 'input_hours'
-        newInput.placeholder ='0.00'
+        newInput.placeholder ='.00'
         newInput.min='-100.00'
         if ( insertValues ) newInput.value = rowVals.hours
       }
@@ -134,7 +134,7 @@ function addRow(tableId, incomeTable, ...args)
             newInput = document.createElement('input')
             newInput.id = idName
             newInput.type = 'number'
-            newInput.value ='0.00'
+            newInput.value ='.00'
           if ( insertValues ) newInput.value = rowVals.amount
           if ( incomeTable == 'no' ) newInput.className ='input_expenseAmount'
           if ( incomeTable == 'yes' ) newInput.className ='input_incomeAmount'
