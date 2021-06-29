@@ -1,0 +1,136 @@
+<!-- 
+COPYRIGHT 2021 
+BRANDON STEINKE 
+CAN USE FOR NON COMMERCIAL PURPOSES ONLY
+
+ -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d -->
+<body style='min-height: 4000px; min-width: 4000px; background-color: gainsboro; '>
+
+    
+    
+    <svg id="test2"  height="2000" width="3000">
+    </svg>   
+    
+    <br>
+    <br>
+    <button style='z-index: 5; float: left; width: 100px; height: 100px;'  onclick="makeNewObj()"></button>
+ 
+<script>
+
+mouseState = 0
+let posX = 0;
+let posY = 0;
+let newPath = 0;
+let startPoint=''
+let startPath=0
+let closePath=''
+let closePoint=0
+let midPoints=''
+let id_assigner = 0;
+let first_pass = 0
+let new_point = false
+
+
+
+
+document.body.onmouseup = function()    { mouseState=0  }
+
+document.onmousedown =setPos;
+
+document.body.onmousedown = function()
+        { 
+            // console.log('mouse is down')
+            setPos();
+            connectPoint();
+        }
+
+function setPos(e)
+    {
+    // posX = event.pageX;
+    // posY = event.pageY;
+    posX = event.clientX;
+    posY = event.clientY;
+    // console.log('the mouse pos is ', posX, posY)
+    }
+
+function connectPoint(){
+    new_point = true
+    if ( newPath == 0 )
+        {
+                obj_id = id_assigner.toString()
+                curr_obj = document.getElementById( obj_id )
+                if ( first_pass > 0 )
+                    {
+                    add_to_curr_points = curr_obj.getAttribute("points")
+                    add_to_curr_points += ` ${posX},${posY}`;
+                    }
+                if ( first_pass == 0 )     add_to_curr_points =`${posX},${posY} `;
+                // console.log('for id obj,', obj_id, ' updated Points are ', add_to_curr_points)
+                curr_obj.setAttribute("points", add_to_curr_points );
+                first_pass =1; 
+
+        }
+   new_point = false
+}
+
+
+//READ THIS TO FIGURE OUT HOW TO GET SVG TO POSITION ON MOUSE 
+//https://www.sitepoint.com/how-to-translate-from-dom-to-svg-coordinates-and-back-again/
+let callOnce =0
+function makeNewObj()
+{
+    // console.log('MakeNewObj() running callOnce =', callOnce)
+    if ( callOnce == 1 ){ id_assigner+=1}
+    p = document.getElementById('test2')
+    p.innerHTML+=
+    `
+    <polyline id=${id_assigner}
+        points="" 
+        style="fill: rgba(255, 166, 0, 0.857); stroke: green; stroke-width: 3;"  
+     </polyline>
+    `
+
+   callOnce=1;
+}
+
+
+  window.addEventListener('mousemove', function(event){
+
+    if ( callOnce == 1 ){
+     p = document.getElementById(id_assigner)
+     z = p.points.length-1
+     if ( z > 0  && new_point == false ){
+     p.points[z].x = event.clientX;
+     p.points[z].y = event.clientY;
+    //  console.log('z =', z, 'p.points[z]', p.points[z],  'p.points[z].x',p.points[z].x, 'p.points[z].y',p.points[z].y )
+     }}
+    });
+
+window.addEventListener("keydown", function(event) {
+
+//   console.log(' the key pressed is' , event.key)
+  if ( event.key == 'n') makeNewObj();  
+}, 
+true);
+
+
+
+</script>
+
+
+
+</body>
+</html>
