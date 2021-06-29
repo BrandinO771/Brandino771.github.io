@@ -2,7 +2,7 @@
 COPYRIGHT 2021 
 BRANDON STEINKE 
 CAN USE FOR NON COMMERCIAL PURPOSES ONLY
-
+DOODLE YOUR DREAMS AWAY
  -->
 
 
@@ -19,18 +19,25 @@ CAN USE FOR NON COMMERCIAL PURPOSES ONLY
 <!-- https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d -->
 <body style='min-height: 4000px; min-width: 4000px; background-color: gainsboro; '>
 
+<!-- <div style='min-height: 50px; min-width: 2000px; background-color: rgb(0, 255, 123);' ></div> -->
     
-    
-    <svg id="test2"  height="2000" width="3000">
+<div>
+    <svg id="test2"  height="550" width="1500">
     </svg>   
-    
+</div>
+
     <br>
     <br>
-    <button style='z-index: 5; float: left; width: 100px; height: 100px;'  onclick="makeNewObj()"></button>
+    <button style='z-index: 5; float: left; width: 100px; height: 100px;'  onclick="makeNewObj()">NEW OBJ</button>
+    <button style='z-index: 5; float: left; width: 100px; height: 100px;'  onclick="fillObj()">FILL ON OFF</button>
+    <br>
+    <p>Press [n] key to create a new drawing element, click or press on screen to draw a point ,
+        click again to connect that point to a new point , Press [n] to create another drawing obj
+    </p>
  
 <script>
 
-mouseState = 0
+// mouseState = 0
 let posX = 0;
 let posY = 0;
 let newPath = 0;
@@ -59,12 +66,33 @@ document.body.onmousedown = function()
 
 function setPos(e)
     {
-    // posX = event.pageX;
-    // posY = event.pageY;
-    posX = event.clientX;
-    posY = event.clientY;
+    posX = event.pageX;
+    posY = event.pageY;
+    // posX = event.clientX;
+    // posY = event.clientY;
     // console.log('the mouse pos is ', posX, posY)
     }
+
+let on = 0;
+
+function fillObj()
+{
+
+    t = document.getElementById( id_assigner.toString() )
+
+    if ( on == 1 )
+        {  
+            if ( t.style.fill != 'none') t.style.fill ='none'
+            on +=1
+        }
+    if ( on == 0 )
+        {
+            if ( t.style.fill == 'none') t.style.fill ='rgba(255, 166, 0, 0.857)'
+            on += 1 
+        }
+    if ( on >=2) on = 0
+
+}
 
 function connectPoint(){
     new_point = true
@@ -99,7 +127,7 @@ function makeNewObj()
     `
     <polyline id=${id_assigner}
         points="" 
-        style="fill: rgba(255, 166, 0, 0.857); stroke: green; stroke-width: 3;"  
+        style="fill: none; stroke: green; stroke-width: 2;"  
      </polyline>
     `
 
@@ -113,18 +141,20 @@ function makeNewObj()
      p = document.getElementById(id_assigner)
      z = p.points.length-1
      if ( z > 0  && new_point == false ){
-     p.points[z].x = event.clientX;
-     p.points[z].y = event.clientY;
+    //  p.points[z].x = event.clientX;
+    //  p.points[z].y = event.clientY;
+        p.points[z].x = event.pageX;
+        p.points[z].y = event.pageY;
     //  console.log('z =', z, 'p.points[z]', p.points[z],  'p.points[z].x',p.points[z].x, 'p.points[z].y',p.points[z].y )
      }}
     });
 
-window.addEventListener("keydown", function(event) {
-
-//   console.log(' the key pressed is' , event.key)
-  if ( event.key == 'n') makeNewObj();  
-}, 
-true);
+window.addEventListener("keydown", function(event) 
+    {
+    //   console.log(' the key pressed is' , event.key)
+    if ( event.key == 'n') makeNewObj();  
+    }, 
+    true);
 
 
 
